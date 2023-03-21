@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- Hero Section Begin -->
-    <section class="hero-section">
+    {{-- <section class="hero-section">
         <div class="hero-items owl-carousel">
             <div class="single-hero-items set-bg" data-setbg="frontend/img/hero-1.jpg">
                 <div class="container">
@@ -39,11 +39,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- Hero Section End -->
 
     <!-- Banner Section Begin -->
-    <div class="banner-section spad">
+    {{-- <div class="banner-section spad">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-4">
@@ -72,11 +72,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Banner Section End -->
 
     <!-- Women Banner Section Begin -->
-    <section class="women-banner spad">
+    <section class="women-banner spad" style="margin-top: 50px;">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-3">
@@ -89,10 +89,10 @@
                     <div class="filter-control">
                         <ul>
                             <li class="active item" data-tag="*" data-category="women">All</li>
-                            <li class="item" data-tag=".Clothing" data-category="women">Clothings</li>
-                            <li class="item" data-tag=".HandBag" data-category="women">HandBag</li>
-                            <li class="item" data-tag=".Shoes" data-category="women">Shoes</li>
-                            <li class="item" data-tag=".Accessories" data-category="women">Accessories</li>
+                            <li class="item" data-tag=".Fragrant" data-category="women">Fragrant</li>
+                            <li class="item" data-tag=".Concentration" data-category="women">Concentration</li>
+                            <li class="item" data-tag=".Capacity" data-category="women">Capacity</li>
+                            {{-- <li class="item" data-tag=".Accessories" data-category="women">Accessories</li> --}}
                         </ul>
                     </div>
 
@@ -109,7 +109,7 @@
     <!-- Women Banner Section End -->
 
     <!-- Deal Of The Week Section Begin-->
-    <section class="deal-of-week set-bg spad" data-setbg="frontend/img/time-bg.jpg">
+    {{-- <section class="deal-of-week set-bg spad" data-setbg="frontend/img/time-bg.jpg">
         <div class="container">
             <div class="col-lg-6 text-center">
                 <div class="section-title">
@@ -142,7 +142,7 @@
                 <a href="#" class="primary-btn">Shop Now</a>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- Deal Of The Week Section End -->
 
     <!-- Man Banner Section Begin -->
@@ -153,10 +153,10 @@
                     <div class="filter-control">
                         <ul>
                             <li class="active item" data-tag="*" data-category="men">All</li>
-                            <li class="item" data-tag=".Clothings" data-category="men">Clothings</li>
-                            <li class="item" data-tag=".HandBag" data-category="men">HandBag</li>
-                            <li class="item" data-tag=".Shoes" data-category="men">Shoes</li>
-                            <li class="item" data-tag=".Accessories" data-category="men">Accessories</li>
+                            <li class="item" data-tag=".Fragrant" data-category="men">Fragrant</li>
+                            <li class="item" data-tag=".Concentration" data-category="men">Concentration</li>
+                            <li class="item" data-tag=".Capacity" data-category="men">Capacity</li>
+                            {{-- <li class="item" data-tag=".Accessories" data-category="men">Accessories</li> --}}
                         </ul>
                     </div>
                     <div class="product-slider owl-carousel men">

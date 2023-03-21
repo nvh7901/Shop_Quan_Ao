@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title', 'Blog')
+@section('title', 'Quản Lý Blog')
 @section('content')
     <!-- Main -->
     <div class="app-main__inner">
@@ -51,6 +51,7 @@
                                     <th class="text-center">ID</th>
                                     <th>Image</th>
                                     <th class="text-center">Title</th>
+                                    <th class="text-center">Blog Category</th>
                                     <th class="text-center">Actions</th>
                                 </tr>
                             </thead>
@@ -65,8 +66,7 @@
                                                         <div class="widget-content-left">
                                                             <img width="60" class="rounded-circle" data-toggle="tooltip"
                                                                 title="Image" data-placement="bottom"
-                                                                src="frontend/img/blog/{{ $blog->image ?? 'default-blog.jpg' }}"
-                                                                alt="">
+                                                                src="frontend/img/blog/{{ $blog->image }}" alt="">
                                                         </div>
                                                     </div>
                                                     {{-- <div class="widget-content-left flex2">
@@ -76,6 +76,7 @@
                                             </div>
                                         </td>
                                         <td class="text-center">{{ $blog->title }}</td>
+                                        <td class="text-center">{{ $blog->blogCategory->name }}</td>
                                         <td class="text-center">
                                             <a href="./admin/blog/{{ $blog->id }}"
                                                 class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">

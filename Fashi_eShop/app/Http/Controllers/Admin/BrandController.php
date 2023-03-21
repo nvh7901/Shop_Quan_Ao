@@ -14,6 +14,7 @@ class BrandController extends Controller
     {
         $this->brandService = $brandService;
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -22,6 +23,7 @@ class BrandController extends Controller
     public function index(Request $request)
     {
         $brands = $this->brandService->searchAndPaginate('name', $request->get('search'));
+
         return view('backend.brand.index')->with(compact('brands'));
     }
 
@@ -38,14 +40,15 @@ class BrandController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        $params = [
+            'name' => $request->name,
+        ];
 
-        $this->brandService->create($data);
+        $data = $this->brandService->create($params);
 
         return redirect('admin/brand')->with('notification', 'Thêm Brand thành công !');
     }
@@ -53,18 +56,19 @@ class BrandController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -77,14 +81,17 @@ class BrandController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $data = $request->all();
-        $this->brandService->update($data, $id);
+        $params = [
+            'name' => $request->name,
+        ];
+        $data = $this->brandService->update($params, $id);
+        dd($data);
 
         return redirect('admin/brand')->with('notification', 'Sửa Brand thành công !');
     }
@@ -92,7 +99,8 @@ class BrandController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

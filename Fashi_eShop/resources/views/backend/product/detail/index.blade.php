@@ -51,21 +51,20 @@
                         <table class="align-middle mb-0 table table-borderless table-striped table-hover">
                             <thead>
                                 <tr>
+                                    <th class="text-center">ID</th>
                                     <th class="pl-4">Product Name</th>
-                                    <th>Color</th>
-                                    <th>Size</th>
-                                    <th>Qty</th>
+                                    <th class="text-center">Size</th>
+                                    <th class="text-center">Qty</th>
                                     <th class="text-center">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($productDetails as $productDetail)
                                     <tr>
+                                        <td class="text-center">#{{ $productDetail->id }}</td>
                                         <td class="pl-4 text-muted">{{ $products->name }}</td>
-
-                                        <td class="">{{ $productDetail->color }}</td>
-                                        <td class="">{{ $productDetail->size }}</td>
-                                        <td class="">{{ $productDetail->qty }}</td>
+                                        <td class="text-center">{{ $productDetail->size }}</td>
+                                        <td class="text-center">{{ $productDetail->qty }}</td>
 
                                         <td class="text-center">
                                             <a href="./admin/product/{{ $products->id }}/detail/{{ $productDetail->id }}/edit"

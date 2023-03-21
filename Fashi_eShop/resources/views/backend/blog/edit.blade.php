@@ -15,50 +15,51 @@
                             @csrf
                             @method('PUT')
                             @error('image')
-                                <div class="alert alert-warning" role="alert">
+                                <div class="alert alert-danger" role="alert">
                                     {{ $message }}
                                 </div>
                             @enderror
                             <div class="position-relative row form-group">
-                                <label for="image" class="col-md-3 text-md-right col-form-label">Avatar</label>
+                                <label for="image" class="col-md-3 text-md-right col-form-label">Image</label>
                                 <div class="col-md-9 col-xl-8">
                                     <img style="height: 200px; cursor: pointer;" class="thumbnail rounded-circle"
                                         data-toggle="tooltip" title="Click to change the image" data-placement="bottom"
-                                        src="frontend/img/blog/{{ $blog->image ?? 'default-avatar.jpg' }}" alt="Avatar">
+                                        src="frontend/img/blog/{{ $blog->image }}" alt="Image">
                                     <input name="image" type="file" onchange="changeImg(this)"
                                         class="image form-control-file" style="display: none;" value="">
-                                    <input type="hidden" name="image" value="{{ $blog->image }}">
+                                    <input type="hidden" name="image_old" value="{{ $blog->image }}">
                                     <small class="form-text text-muted">
                                         Click on the image to change (required)
                                     </small>
                                 </div>
                             </div>
+
                             @error('title')
-                                <div class="alert alert-warning" role="alert">
+                                <div class="alert alert-danger" role="alert">
                                     {{ $message }}
                                 </div>
                             @enderror
                             <div class="position-relative row form-group">
                                 <label for="title" class="col-md-3 text-md-right col-form-label">Title</label>
                                 <div class="col-md-9 col-xl-8">
-                                    <input required name="title" id="title" placeholder="Title" type="text"
+                                    <input name="title" id="title" placeholder="Title" type="text"
                                         class="form-control" value="{{ $blog->title }}">
                                 </div>
                             </div>
                             @error('subtitle')
-                                <div class="alert alert-warning" role="alert">
+                                <div class="alert alert-danger" role="alert">
                                     {{ $message }}
                                 </div>
                             @enderror
                             <div class="position-relative row form-group">
                                 <label for="subtitle" class="col-md-3 text-md-right col-form-label">Subtitle</label>
                                 <div class="col-md-9 col-xl-8">
-                                    <input required name="subtitle" id="subtitle" placeholder="Subtitle" type="text"
+                                    <input name="subtitle" id="subtitle" placeholder="Subtitle" type="text"
                                         class="form-control" value="{{ $blog->subtitle }}">
                                 </div>
                             </div>
                             @error('content')
-                                <div class="alert alert-warning" role="alert">
+                                <div class="alert alert-danger" role="alert">
                                     {{ $message }}
                                 </div>
                             @enderror
@@ -68,7 +69,26 @@
                                     <textarea class="form-control" name="content" id="content">{!! $blog->content !!}</textarea>
                                 </div>
                             </div>
-
+                            @error('blog_category_id')
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                            <div class="position-relative row form-group">
+                                <label for="product_category_id" class="col-md-3 text-md-right col-form-label">Blog
+                                    Category</label>
+                                <div class="col-md-9 col-xl-8">
+                                    <select name="blog_category_id" id="blog_category_id" class="form-control">
+                                        <option value="-1">-- Blog Category --</option>
+                                        @foreach ($blogCategories as $blogCategory)
+                                            <option value={{ $blogCategory->id }}
+                                                {{ $blog->blog_category_id == $blogCategory->id ? 'selected' : '' }}>
+                                                {{ $blogCategory->name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                             <div class="position-relative row form-group mb-1">
                                 <div class="col-md-9 col-xl-8 offset-md-2">
                                     <a href="./admin/blog" class="border-0 btn btn-outline-danger mr-1">

@@ -20,12 +20,12 @@ class HomeController extends Controller
         $this->blogService = $blogService;
         $this->productService = $productService;
     }
-
-
+    
     public function index()
     {
         // Sản phẩm nổi bật
         $featuredProduct = $this->productService->getFeaturedProducts();
+        // dd($featuredProduct);
         // Danh sách blog
         $blogs = $this->blogService->getRelatestBlogs();
         return view('frontend.index')

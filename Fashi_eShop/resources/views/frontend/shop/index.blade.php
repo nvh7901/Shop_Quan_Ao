@@ -2,7 +2,7 @@
 @section('title', 'Shop')
 @section('content')
 
-    
+
     <!-- Breadcrumb Section Begin -->
     <div class="breacrumb-section">
         <div class="container">
@@ -45,7 +45,6 @@
                                                 value="price-ascending">Price Ascending </option>
                                             <option {{ request('sort_by') == 'price-descending' ? 'selected' : '' }}
                                                 value="price-descending">Price Decrease</option>
-
                                         </select>
                                         <select class="p-show" name="show" onchange="this.form.submit()">
                                             <option {{ request('show') == '3' ? 'selected' : '' }} value="3">Show: 3

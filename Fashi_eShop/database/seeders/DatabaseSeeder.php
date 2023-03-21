@@ -51,7 +51,7 @@ class DatabaseSeeder extends Seeder
                 'password' => Hash::make('123456'),
                 'avatar' => 'avatar-0.png',
                 'level' => 1,
-                'description' => 'Aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum bore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud amodo'
+                'description' => 'Aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum bore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud amodo',
             ],
             [
                 'id' => 4,
@@ -76,54 +76,38 @@ class DatabaseSeeder extends Seeder
         DB::table('blogs')->insert([
             [
                 'user_id' => 3,
+
+                'blog_category_id' => 1,
                 'title' => 'The Personality Trait That Makes People Happier',
                 'subtitle' => 'ABCDRF',
                 'image' => 'blog-1.jpg',
-                'category' => 'TRAVEL',
                 'content' => '',
             ],
             [
                 'user_id' => 3,
+                'blog_category_id' => 2,
                 'title' => 'This was one of our first days in Hawaii last week.',
                 'subtitle' => 'ABCDRF',
                 'image' => 'blog-2.jpg',
-                'category' => 'CodeLeanON',
                 'content' => '',
             ],
             [
                 'user_id' => 3,
+                'blog_category_id' => 1,
                 'title' => 'Last week I had my first work trip of the year to Sonoma Valley',
                 'subtitle' => 'ABCDRF',
                 'image' => 'blog-3.jpg',
-                'category' => 'TRAVEL',
-                'content' => '',
-            ],
-            [
-                'user_id' => 3,
-                'title' => 'Happppppy New Year! I know I am a little late on this post',
-                'subtitle' => 'ABCDRF',
-                'image' => 'blog-4.jpg',
-                'category' => 'CodeLeanON',
-                'content' => '',
-            ],
-            [
-                'user_id' => 3,
-                'title' => 'Absolue collection. The Lancome team has been one…',
-                'subtitle' => 'ABCDRF',
-                'image' => 'blog-5.jpg',
-                'category' => 'MODEL',
-                'content' => '',
-            ],
-            [
-                'user_id' => 3,
-                'title' => 'Writing has always been kind of therapeutic for me',
-                'subtitle' => 'ABCDRF',
-                'image' => 'blog-6.jpg',
-                'category' => 'CodeLeanON',
                 'content' => '',
             ],
         ]);
-
+        DB::table('blog_categories')->insert([
+            [
+                'name' => 'TRAVEL',
+            ],
+            [
+                'name' => 'CodeLeanON',
+            ],
+        ]);
         DB::table('brands')->insert([
             [
                 'name' => 'Calvin Klein',
@@ -295,44 +279,12 @@ class DatabaseSeeder extends Seeder
                 'path' => 'product-1.jpg',
             ],
             [
-                'product_id' => 1,
-                'path' => 'product-1-1.jpg',
-            ],
-            [
-                'product_id' => 1,
-                'path' => 'product-1-2.jpg',
-            ],
-            [
                 'product_id' => 2,
                 'path' => 'product-2.jpg',
             ],
             [
                 'product_id' => 3,
                 'path' => 'product-3.jpg',
-            ],
-            [
-                'product_id' => 4,
-                'path' => 'product-4.jpg',
-            ],
-            [
-                'product_id' => 5,
-                'path' => 'product-5.jpg',
-            ],
-            [
-                'product_id' => 6,
-                'path' => 'product-6.jpg',
-            ],
-            [
-                'product_id' => 7,
-                'path' => 'product-7.jpg',
-            ],
-            [
-                'product_id' => 8,
-                'path' => 'product-8.jpg',
-            ],
-            [
-                'product_id' => 9,
-                'path' => 'product-9.jpg',
             ],
         ]);
 

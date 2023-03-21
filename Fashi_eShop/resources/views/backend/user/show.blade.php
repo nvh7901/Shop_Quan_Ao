@@ -3,23 +3,6 @@
 @section('content')
     <!-- Main -->
     <div class="app-main__inner">
-        {{-- <div class="app-page-title">
-            <div class="page-title-wrapper">
-                <div class="page-title-heading">
-                    <div class="page-title-icon">
-                        <i class="pe-7s-ticket icon-gradient bg-mean-fruit"></i>
-                    </div>
-                    <div>
-                        User
-                        <div class="page-title-subheading">
-                            View, create, update, delete and manage.
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div> --}}
-
         <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
             <li class="nav-item">
                 <a href="./admin/user/{{ $user->id }}/edit" class="nav-link">
@@ -74,24 +57,13 @@
                                 {{ $user->email }}
                             </div>
                         </div>
-
-                        {{-- <div class="position-relative row form-group">
-                            <label for="company_name" class="col-md-3 text-md-right col-form-label"
-                                style="padding-top: 0px;">
-                                Company Name
-                            </label>
+                        <div class="position-relative row form-group">
+                            <label for="town_city" class="col-md-3 text-md-right col-form-label" style="padding-top: 0px;">
+                                City</label>
                             <div class="col-md-9 col-xl-8">
-                                {{ $user->company_name }}
+                                {{ $user->city }}
                             </div>
-                        </div> --}}
-
-                        {{-- <div class="position-relative row form-group">
-                            <label for="country" class="col-md-3 text-md-right col-form-label"
-                                style="padding-top: 0px;">Country</label>
-                            <div class="col-md-9 col-xl-8">
-                                {{ $user->country }}
-                            </div>
-                        </div> --}}
+                        </div>
 
                         <div class="position-relative row form-group">
                             <label for="street_address" class="col-md-3 text-md-right col-form-label"
@@ -101,23 +73,6 @@
                                 {{ $user->street_address }}
                             </div>
                         </div>
-
-                        {{-- <div class="position-relative row form-group">
-                            <label for="postcode_zip" class="col-md-3 text-md-right col-form-label"
-                                style="padding-top: 0px;">
-                                Postcode Zip</label>
-                            <div class="col-md-9 col-xl-8">
-                                {{ $user->postcode_zip }}
-                            </div>
-                        </div> --}}
-
-                        {{-- <div class="position-relative row form-group">
-                            <label for="town_city" class="col-md-3 text-md-right col-form-label" style="padding-top: 0px;">
-                                Town City</label>
-                            <div class="col-md-9 col-xl-8">
-                                {{ $user->town_city }}
-                            </div>
-                        </div> --}}
 
                         <div class="position-relative row form-group">
                             <label for="phone" class="col-md-3 text-md-right col-form-label"

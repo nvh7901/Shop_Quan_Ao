@@ -37,7 +37,8 @@
                                 <tr>
                                     <th class="text-center">ID</th>
                                     <th>Customer / Products</th>
-                                    <th class="text-center">Address</th>
+                                    <th>Image</th>
+                                    <th class="text-center">QTY</th>
                                     <th class="text-center">Amount</th>
                                     <th class="text-center">Status</th>
                                     <th class="text-center">Actions</th>
@@ -51,15 +52,18 @@
                                             <div class="widget-content p-0">
                                                 <div class="widget-content-wrapper">
                                                     <div class="widget-content-left mr-3">
-                                                        <div class="widget-content-left">
+                                                        {{-- <div class="widget-content-left">
                                                             <img style="height: 60px;" data-toggle="tooltip" title="Image"
                                                                 data-placement="bottom"
                                                                 src="frontend/img/products/{{ $order->orderDetails[0]->product->productImages[0]->path }}">
-                                                        </div>
+                                                        </div> --}}
+                                                        {{ $order->name }}
+
                                                     </div>
                                                     <div class="widget-content-left flex2">
                                                         <div class="widget-heading">
-                                                            {{ $order->first_name }}</div>
+                                                            {{-- {{ $order->name }} --}}
+                                                        </div>
                                                         <div class="widget-subheading opacity-7">
                                                             {{ $order->orderDetails[0]->product->name }}
                                                             @if (count($order->orderDetails) > 1)
@@ -70,8 +74,19 @@
                                                 </div>
                                             </div>
                                         </td>
+                                        <td>
+
+                                            <div class="widget-content-left mr-3">
+                                                <div class="widget-content-left">
+                                                    <img style="height: 60px;" data-toggle="tooltip" title="Image"
+                                                        data-placement="bottom"
+                                                        src="frontend/img/products/{{ $order->orderDetails[0]->product->productImages[0]->path }}">
+                                                </div>
+
+                                            </div>
+                                        </td>
                                         <td class="text-center">
-                                            {{ $order->street_address }}
+                                            {{ $order->qty }}
                                         </td>
                                         <td class="text-center">
                                             ${{ array_sum(array_column($order->orderDetails->toArray(), 'total')) }}</td>

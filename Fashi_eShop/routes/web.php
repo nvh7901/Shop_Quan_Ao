@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\ProductCategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProductDetailController;
 use App\Http\Controllers\Admin\ProductImageController;
+use App\Http\Controllers\Admin\BlogCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -108,4 +109,10 @@ Route::prefix('admin')->middleware('CheckAdminLogin')->group(function () {
    Route::resource('order', OrderController::class);
    //Route quản lý blog
    Route::resource('blog', BlogController::class);
+   //Route quản lý blogCategory
+   Route::resource('blogcategory', BlogCategoryController::class);
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

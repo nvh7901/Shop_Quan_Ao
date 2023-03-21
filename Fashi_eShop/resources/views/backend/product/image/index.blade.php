@@ -10,14 +10,14 @@
                 <div class="main-card mb-3 card">
                     <div class="card-body">
 
-                        <div class="position-relative row form-group">
+                        {{-- <div class="position-relative row form-group">
                             <label for="name" class="col-md-3 text-md-right col-form-label">Product Name</label>
                             <div class="col-md-9 col-xl-8">
                                 <input disabled placeholder="Product Name" type="text" class="form-control"
                                     value="Calvin Klein">
                             </div>
-                        </div>
-
+                        </div> --}}
+                        @include('backend.components.notification')
                         <div class="position-relative row form-group">
                             <label for="" class="col-md-3 text-md-right col-form-label">Images</label>
                             <div class="col-md-9 col-xl-8">
@@ -51,8 +51,7 @@
 
                                                 <input name="image" type="file"
                                                     onchange="changeImg(this); this.form.submit()"
-                                                    accept="image/x-png,image/gif,image/jpg" class="image form-control-file"
-                                                    style="display: none;">
+                                                    class="image form-control-file" style="display: none;">
 
                                                 <input type="hidden" name="product_id" value="{{ $products->id }}">
                                             </div>

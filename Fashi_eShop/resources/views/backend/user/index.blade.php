@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title', 'User')
+@section('title', 'Quản Lý User')
 @section('content')
     <!-- Main -->
     <div class="app-main__inner">
@@ -51,6 +51,7 @@
                                     <th class="text-center">ID</th>
                                     <th>Full Name</th>
                                     <th class="text-center">Email</th>
+                                    <th class="text-center">City</th>
                                     <th class="text-center">Level</th>
                                     <th class="text-center">Actions</th>
                                 </tr>
@@ -77,6 +78,7 @@
                                             </div>
                                         </td>
                                         <td class="text-center">{{ $user->email }}</td>
+                                        <td class="text-center">{{ $user->city }}</td>
                                         <td class="text-center">
                                             {{ \App\Utilities\Constant::$user_status[$user->level] }}
                                             {{-- {{ $user->level }} --}}

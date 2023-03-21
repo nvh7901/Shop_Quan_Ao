@@ -25,7 +25,7 @@ class ProductCategoryRequest extends FormRequest
     {
         return [
             // regex:/^[\pL\s]+$/u cho phép nhập từ a-z A-Z, nhập khoảng trắng, không cho nhập các ký tự khác
-            'name' => 'required|regex:/^[\pL\s]+$/u|min:3|max:50',
+            'name' => 'required|regex:/^[\pL\s]+$/u|min:3|max:50|unique:product_categories',
         ];
     }
 

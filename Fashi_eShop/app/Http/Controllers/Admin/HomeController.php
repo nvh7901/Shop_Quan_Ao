@@ -36,7 +36,7 @@ class HomeController extends Controller
         ];
 
         $remember = $request->remember;
-
+        
         if (Auth::attempt($credentials, $remember)) {
             // Mặc định đăng nhập vào trang chủ
             return redirect()->intended('admin');

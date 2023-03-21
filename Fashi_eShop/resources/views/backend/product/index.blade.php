@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title', 'Product')
+@section('title', 'Quản Lý Product')
 @section('content')
     <!-- Main -->
     <div class="app-main__inner">
@@ -49,9 +49,9 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">ID</th>
-                                    <th>Name / Brand</th>
+                                    <th>Image/ Name</th>
                                     <th class="text-center">Price</th>
-                                    <th class="text-center">Qty</th>
+                                    {{-- <th class="text-center" style="width: 150px;">Tag</th> --}}
                                     <th class="text-center">Featured</th>
                                     <th class="text-center">Actions</th>
                                 </tr>
@@ -74,18 +74,32 @@
                                                     <div class="widget-content-left flex2">
                                                         <div class="widget-heading">{{ $product->name }}</div>
                                                         <div class="widget-subheading opacity-7">
-                                                            {{ $product->brand->name }}
+                                                            Brand: {{ $product->brand->name }}
+                                                        </div>
+                                                        <div class="widget-subheading opacity-7">
+                                                            Category: {{ $product->productCategory->name }}
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </td>
                                         <td class="text-center">${{ $product->price }}</td>
-                                        <td class="text-center">{{ $product->qty }}</td>
+                                        {{-- <td>
+                                            @foreach (json_decode($product->tag, true) ?? [] as $tag)
+                                                <label class="label label-info border">{{ $tag }}</label>
+                                            @endforeach
+                                        </td> --}}
                                         <td class="text-center">
-                                            <div class="badge badge-success mt-2">
-                                                {{ $product->featured ? 'Yes' : 'No' }}
-                                            </div>
+                                            @if ($product->featured == 1)
+                                                <div class="badge badge-success mt-2">
+                                                    {{ $product->featured ? 'Yes' : 'No' }}
+                                                </div>
+                                            @else
+                                                <div class="badge badge-danger mt-2">
+                                                    {{ $product->featured ? '' : 'No' }}
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <td class="text-center">
                                             <a href="./admin/product/{{ $product->id }}"
@@ -106,7 +120,7 @@
                                                 <button class="btn btn-hover-shine btn-outline-danger border-0 btn-sm"
                                                     type="submit" data-toggle="tooltip" title="Delete"
                                                     data-placement="bottom"
-                                                    onclick="return confirm('Bạn có muốn xóa product {{ $product->name }} này không ?')">
+                                                    onclick="return confirm('Do you want to delete this product ?')">
                                                     <span class="btn-icon-wrapper opacity-8">
                                                         <i class="fa fa-trash fa-w-20"></i>
                                                     </span>

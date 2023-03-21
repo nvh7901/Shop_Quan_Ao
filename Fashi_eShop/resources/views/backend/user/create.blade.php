@@ -3,23 +3,6 @@
 @section('content')
     <!-- Main -->
     <div class="app-main__inner">
-
-        {{-- <div class="app-page-title">
-            <div class="page-title-wrapper">
-                <div class="page-title-heading">
-                    <div class="page-title-icon">
-                        <i class="pe-7s-ticket icon-gradient bg-mean-fruit"></i>
-                    </div>
-                    <div>
-                        User
-                        <div class="page-title-subheading">
-                            View, create, update, delete and manage.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
-
         <div class="row">
             <div class="col-md-12">
                 <div class="main-card mb-3 card">
@@ -28,8 +11,8 @@
                         @include('backend.components.notification')
                         <form method="post" action="admin/user" enctype="multipart/form-data">
                             @csrf
-                            @error('avatar')
-                                <div class="alert alert-warning" role="alert">
+                            @error('image')
+                                <div class="alert alert-danger" role="alert">
                                     {{ $message }}
                                 </div>
                             @enderror
@@ -45,7 +28,7 @@
                                 </div>
                             </div>
                             @error('name')
-                                <div class="alert alert-warning" role="alert">
+                                <div class="alert alert-danger" role="alert">
                                     {{ $message }}
                                 </div>
                             @enderror
@@ -57,7 +40,7 @@
                                 </div>
                             </div>
                             @error('email')
-                                <div class="alert alert-warning" role="alert">
+                                <div class="alert alert-danger" role="alert">
                                     {{ $message }}
                                 </div>
                             @enderror
@@ -69,7 +52,7 @@
                                 </div>
                             </div>
                             @error('password')
-                                <div class="alert alert-warning" role="alert">
+                                <div class="alert alert-danger" role="alert">
                                     {{ $message }}
                                 </div>
                             @enderror
@@ -80,39 +63,18 @@
                                         class="form-control" value="">
                                 </div>
                             </div>
-                            @error('password_confirmation')
-                                <div class="alert alert-warning" role="alert">
-                                    {{ $message }}
-                                </div>
-                            @enderror
                             <div class="position-relative row form-group">
-                                <label for="password_confirmation" class="col-md-3 text-md-right col-form-label">Confirm
-                                    Password</label>
+                                <label for="town_city" class="col-md-3 text-md-right col-form-label">
+                                    Town City
+                                </label>
                                 <div class="col-md-9 col-xl-8">
-                                    <input name="password_confirmation" id="password_confirmation"
-                                        placeholder="Confirm Password" type="password" class="form-control" value="">
+                                    <input name="city" id="city" placeholder="City" type="text"
+                                        class="form-control" value="">
                                 </div>
                             </div>
 
-                            {{-- <div class="position-relative row form-group">
-                                <label for="company_name" class="col-md-3 text-md-right col-form-label">
-                                    Company Name
-                                </label>
-                                <div class="col-md-9 col-xl-8">
-                                    <input name="company_name" id="company_name" placeholder="Company Name" type="text"
-                                        class="form-control" value="">
-                                </div>
-                            </div> --}}
-
-                            {{-- <div class="position-relative row form-group">
-                                <label for="country" class="col-md-3 text-md-right col-form-label">Country</label>
-                                <div class="col-md-9 col-xl-8">
-                                    <input name="country" id="country" placeholder="Country" type="text"
-                                        class="form-control" value="">
-                                </div>
-                            </div> --}}
                             @error('street_address')
-                                <div class="alert alert-warning" role="alert">
+                                <div class="alert alert-danger" role="alert">
                                     {{ $message }}
                                 </div>
                             @enderror
@@ -126,27 +88,8 @@
                                 </div>
                             </div>
 
-                            {{-- <div class="position-relative row form-group">
-                                <label for="postcode_zip" class="col-md-3 text-md-right col-form-label">
-                                    Postcode Zip
-                                </label>
-                                <div class="col-md-9 col-xl-8">
-                                    <input name="postcode_zip" id="postcode_zip" placeholder="Postcode Zip"
-                                        type="text" class="form-control" value="">
-                                </div>
-                            </div>
-
-                            <div class="position-relative row form-group">
-                                <label for="town_city" class="col-md-3 text-md-right col-form-label">
-                                    Town City
-                                </label>
-                                <div class="col-md-9 col-xl-8">
-                                    <input name="town_city" id="town_city" placeholder="Town City" type="text"
-                                        class="form-control" value="">
-                                </div>
-                            </div> --}}
                             @error('phone')
-                                <div class="alert alert-warning" role="alert">
+                                <div class="alert alert-danger" role="alert">
                                     {{ $message }}
                                 </div>
                             @enderror
@@ -154,11 +97,11 @@
                                 <label for="phone" class="col-md-3 text-md-right col-form-label">Phone</label>
                                 <div class="col-md-9 col-xl-8">
                                     <input name="phone" id="phone" placeholder="Phone" type="text"
-                                        class="form-control" value="" >
+                                        class="form-control" value="">
                                 </div>
                             </div>
                             @error('level')
-                                <div class="alert alert-warning" role="alert">
+                                <div class="alert alert-danger" role="alert">
                                     {{ $message }}
                                 </div>
                             @enderror

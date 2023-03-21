@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Utilities\File;
-use App\Models\ProductImage;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\ProductImage;
 use App\Service\Product\ProductServiceInterface;
+use App\Utilities\File;
+use Illuminate\Http\Request;
 
 class ProductImageController extends Controller
 {
@@ -16,6 +16,7 @@ class ProductImageController extends Controller
     {
         $this->productService = $productService;
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -39,20 +40,16 @@ class ProductImageController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, $product_id)
     {
         $data = $request->all();
-
-        // Xử lý file
         if ($request->hasFile('image')) {
             $data['path'] = File::uploadFile($request->file('image'), 'frontend/img/products');
             unset($data['image']);
@@ -60,47 +57,45 @@ class ProductImageController extends Controller
             ProductImage::create($data);
         }
 
-        return redirect('admin/product/' . $product_id)->with('notification', 'Thêm hình ảnh thành công');
+        return redirect('admin/product/'.$product_id.'/image')->with('notification', 'Thêm hình ảnh thành công');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($product_id, $product_image_id)
@@ -109,13 +104,13 @@ class ProductImageController extends Controller
         $file_name = ProductImage::find($product_image_id)->path;
 
         if ($file_name != '') {
-            unlink('frontend/img/products/' . $file_name);
+            unlink('frontend/img/products/'.$file_name);
         }
 
         // Xóa bản ghi trong DB
 
         ProductImage::find($product_image_id)->delete();
 
-        return redirect('admin/product/' . $product_id);
+        return redirect('admin/product/'.$product_id.'/image')->with('notification', 'Xóa hình ảnh thành công');
     }
 }

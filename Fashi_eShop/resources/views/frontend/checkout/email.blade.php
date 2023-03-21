@@ -52,27 +52,27 @@
                             </td>
 
                             @if ($order->payment_type == 'pay_later')
-                                <td class="pl-3" style=" padding-left:15px;">
-                                    <span class="d-inline"
-                                        style="color:#424853; font-family:trebuchet,sans-serif; font-size:16px; font-weight:normal; line-height:22px;">
-                                        You will pay on delivery. We have just handed over your order to a shipping
-                                        partner.
-                                    </span>
-                                </td>
+                            <td class="pl-3" style=" padding-left:15px;">
+                                <span class="d-inline"
+                                    style="color:#424853; font-family:trebuchet,sans-serif; font-size:16px; font-weight:normal; line-height:22px;">
+                                    You will pay on delivery. We have just handed over your order to a shipping
+                                    partner.
+                                </span>
+                            </td>
                             @endif
 
                             @if ($order->payment_type == 'online_payment')
-                                <td class="pl-3" style=" padding-left:15px;">
-                                    <span class="d-inline"
-                                        style="color:#424853; font-family:trebuchet,sans-serif; font-size:16px; font-weight:normal; line-height:22px;">
-                                        Your order has been paid online. We have just handed over your order to a
-                                        shipping partner.
-                                    </span>
-                                </td>
-                                <td class="pl-3" style=" padding-left:10px;">
-                                    <img src="https://vnpay.vn/wp-content/uploads/2020/07/Logo-VNPAYQR-update.png"
-                                        width="130px" style="margin-top: 10px;" alt="">
-                                </td>
+                            <td class="pl-3" style=" padding-left:15px;">
+                                <span class="d-inline"
+                                    style="color:#424853; font-family:trebuchet,sans-serif; font-size:16px; font-weight:normal; line-height:22px;">
+                                    Your order has been paid online. We have just handed over your order to a
+                                    shipping partner.
+                                </span>
+                            </td>
+                            <td class="pl-3" style=" padding-left:10px;">
+                                <img src="https://vnpay.vn/wp-content/uploads/2020/07/Logo-VNPAYQR-update.png"
+                                    width="130px" style="margin-top: 10px;" alt="">
+                            </td>
                             @endif
 
                         </tr>
@@ -95,15 +95,15 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($order->orderDetails as $orderDetail)
-                                        <tr>
-                                            <td style="border-top: 1px solid #dee2e6; padding: 5px 0;">
-                                                {{ $orderDetail->product->name . ' (x' . $orderDetail->qty . ')' }}
-                                            </td>
-                                            <td
-                                                style="border-top: 1px solid #dee2e6; padding: 5px 20px 5px 0; text-align: right;">
-                                                {{ $orderDetail->total }} $
-                                            </td>
-                                        </tr>
+                                    <tr>
+                                        <td style="border-top: 1px solid #dee2e6; padding: 5px 0;">
+                                            {{ $orderDetail->product->name . ' (x' . $orderDetail->qty . ')' }}
+                                        </td>
+                                        <td
+                                            style="border-top: 1px solid #dee2e6; padding: 5px 20px 5px 0; text-align: right;">
+                                            {{ $orderDetail->total }} $
+                                        </td>
+                                    </tr>
                                     @endforeach
                                 </tbody>
                             </table>
@@ -111,7 +111,7 @@
                     </div>
                 </div>
 
-                
+
             </div>
         </div>
     </div>

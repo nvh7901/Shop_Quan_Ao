@@ -15,6 +15,7 @@ class ProductCategoryController extends Controller
     {
         $this->productCategoryService = $productCategoryService;
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -23,6 +24,7 @@ class ProductCategoryController extends Controller
     public function index(Request $request)
     {
         $productCategories = $this->productCategoryService->searchAndPaginate('name', $request->get('search'));
+
         return view('backend.category.index')->with(compact('productCategories'));
     }
 
@@ -39,33 +41,37 @@ class ProductCategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(ProductCategoryRequest $request)
     {
-        $data = $request->all();
+        $params = [
+            'name' => $request->name,
+        ];
 
-        $this->productCategoryService->create($data);
+        $data = $this->productCategoryService->create($params);
 
-        return redirect('admin/category')->with('notification', 'Successfully Added Category !');
+        return redirect('admin/category')->with('notification', 'Thêm Category thành công !');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -78,14 +84,18 @@ class ProductCategoryController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(ProductCategoryRequest $request, $id)
     {
-        $data = $request->all();
-        $this->productCategoryService->update($data, $id);
+        $params = [
+            'name' => $request->name,
+        ];
+
+        $data = $this->productCategoryService->update($params, $id);
 
         return redirect('admin/category')->with('notification', 'Edit Category Successfully !');
     }
@@ -93,13 +103,14 @@ class ProductCategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         $this->productCategoryService->delete($id);
 
-        return redirect('admin/category')->with('notification', 'Delete Category Successfully');
+        return redirect('admin/category')->with('notification', 'Delete Category Successfully !');
     }
 }

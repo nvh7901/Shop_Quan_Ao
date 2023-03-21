@@ -14,8 +14,8 @@
                         <form method="post" action="/admin/user/{{ $user->id }}" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
-                            @error('avatar')
-                                <div class="alert alert-warning" role="alert">
+                            @error('image')
+                                <div class="alert alert-danger" role="alert">
                                     {{ $message }}
                                 </div>
                             @enderror
@@ -24,7 +24,7 @@
                                 <div class="col-md-9 col-xl-8">
                                     <img style="height: 200px; cursor: pointer;" class="thumbnail rounded-circle"
                                         data-toggle="tooltip" title="Click to change the image" data-placement="bottom"
-                                        src="frontend/img/user/{{ $user->avatar ?? 'default-avatar.jpg' }}" alt="Avatar">
+                                        src="frontend/img/user/{{ $user->avatar }}" alt="Avatar">
                                     <input name="image" type="file" onchange="changeImg(this)"
                                         class="image form-control-file" style="display: none;" value="">
                                     <input type="hidden" name="image_old" value="{{ $user->avatar }}">
@@ -34,7 +34,7 @@
                                 </div>
                             </div>
                             @error('name')
-                                <div class="alert alert-warning" role="alert">
+                                <div class="alert alert-danger" role="alert">
                                     {{ $message }}
                                 </div>
                             @enderror
@@ -46,7 +46,7 @@
                                 </div>
                             </div>
                             @error('email')
-                                <div class="alert alert-warning" role="alert">
+                                <div class="alert alert-danger" role="alert">
                                     {{ $message }}
                                 </div>
                             @enderror
@@ -58,7 +58,7 @@
                                 </div>
                             </div>
                             @error('password')
-                                <div class="alert alert-warning" role="alert">
+                                <div class="alert alert-danger" role="alert">
                                     {{ $message }}
                                 </div>
                             @enderror
@@ -69,39 +69,18 @@
                                         class="form-control" value="">
                                 </div>
                             </div>
-                            @error('password_confirmation')
-                                <div class="alert alert-warning" role="alert">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                            <div class="position-relative row form-group">
-                                <label for="password_confirmation" class="col-md-3 text-md-right col-form-label">Confirm
-                                    Password</label>
-                                <div class="col-md-9 col-xl-8">
-                                    <input name="password_confirmation" id="password_confirmation"
-                                        placeholder="Confirm Password" type="password" class="form-control" value="">
-                                </div>
-                            </div>
 
-                            {{-- <div class="position-relative row form-group">
-                                <label for="company_name" class="col-md-3 text-md-right col-form-label">
-                                    Company Name
+                            <div class="position-relative row form-group">
+                                <label for="city" class="col-md-3 text-md-right col-form-label">
+                                    City
                                 </label>
                                 <div class="col-md-9 col-xl-8">
-                                    <input name="company_name" id="company_name" placeholder="Company Name" type="text"
-                                        class="form-control" value="{{ $user->company_name }}">
+                                    <input name="city" id="city" placeholder="City" type="text"
+                                        class="form-control" value="{{ $user->city }}">
                                 </div>
-                            </div> --}}
-
-                            {{-- <div class="position-relative row form-group">
-                                <label for="country" class="col-md-3 text-md-right col-form-label">Country</label>
-                                <div class="col-md-9 col-xl-8">
-                                    <input name="country" id="country" placeholder="Country" type="text"
-                                        class="form-control" value="{{ $user->country }}">
-                                </div>
-                            </div> --}}
+                            </div>
                             @error('street_address')
-                                <div class="alert alert-warning" role="alert">
+                                <div class="alert alert-danger" role="alert">
                                     {{ $message }}
                                 </div>
                             @enderror
@@ -115,27 +94,9 @@
                                 </div>
                             </div>
 
-                            {{-- <div class="position-relative row form-group">
-                                <label for="postcode_zip" class="col-md-3 text-md-right col-form-label">
-                                    Postcode Zip
-                                </label>
-                                <div class="col-md-9 col-xl-8">
-                                    <input name="postcode_zip" id="postcode_zip" placeholder="Postcode Zip"
-                                        type="text" class="form-control" value="{{ $user->postcode_zip }}">
-                                </div>
-                            </div>
-
-                            <div class="position-relative row form-group">
-                                <label for="town_city" class="col-md-3 text-md-right col-form-label">
-                                    Town City
-                                </label>
-                                <div class="col-md-9 col-xl-8">
-                                    <input name="town_city" id="town_city" placeholder="Town City" type="text"
-                                        class="form-control" value="{{ $user->town_city }}">
-                                </div>
-                            </div> --}}
+                            
                             @error('phone')
-                                <div class="alert alert-warning" role="alert">
+                                <div class="alert alert-danger" role="alert">
                                     {{ $message }}
                                 </div>
                             @enderror
@@ -147,7 +108,7 @@
                                 </div>
                             </div>
                             @error('level')
-                                <div class="alert alert-warning" role="alert">
+                                <div class="alert alert-danger" role="alert">
                                     {{ $message }}
                                 </div>
                             @enderror
@@ -155,7 +116,7 @@
                                 <label for="level" class="col-md-3 text-md-right col-form-label">Level</label>
                                 <div class="col-md-9 col-xl-8">
                                     <select name="level" id="level" class="form-control">
-                                        <option value="">-- Level --</option>
+                                        <option value="-1">-- Level --</option>
                                         @foreach (\App\Utilities\Constant::$user_status as $key => $value)
                                             <option value={{ $key }}
                                                 {{ $user->level == $key ? 'selected' : '' }}>

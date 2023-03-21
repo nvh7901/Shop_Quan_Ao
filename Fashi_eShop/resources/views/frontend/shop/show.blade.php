@@ -47,7 +47,7 @@
                         <div class="col-lg-6">
                             <div class="product-details">
                                 <div class="pd-title">
-                                    <span>{{ $product->tag }}</span>
+                                    {{-- <span>{{ $product->tag }}</span> --}}
                                     <h3>{{ $product->name }}</h3>
                                     <a href="#" class="heart-icon"><i class="icon_heart_alt"></i></a>
                                 </div>
@@ -63,24 +63,7 @@
                                 </div>
                                 <div class="pd-desc">
                                     <p>{{ $product->content }}</p>
-                                    @if ($product->discount != null)
-                                        <h4>${{ $product->discount }} <span>${{ $product->price }}</span></h4>
-                                    @else
-                                        <h4>${{ $product->price }}</h4>
-                                    @endif
-                                </div>
-                                <div class="pd-color">
-                                    <h6>Color</h6>
-                                    <div class="pd-color-choose">
-                                        @foreach (array_unique(array_column($product->productDetails->toArray(), 'color')) as $productColor)
-                                            <div class="cc-item">
-                                                <input type="radio" id="cc-{{ $productColor }}">
-                                                <label for="cc-{{ $productColor }}"
-                                                    class="cc-{{ $productColor }}"></label>
-                                            </div>
-                                        @endforeach
-
-                                    </div>
+                                    <h4>${{ $product->price }}</h4>
                                 </div>
                                 <div class="pd-size-choose">
 
@@ -92,17 +75,22 @@
                                     @endforeach
                                 </div>
                                 <div class="quantity">
-                                    {{-- <div class="pro-qty">
-                                        <input type="text" value="1">
-                                    </div> --}}
-                                    <a href="javascript:addCart({{ $product->id }})" class="primary-btn pd-cart">Add To Cart</a>
+                                    <a href="javascript:addCart({{ $product->id }})" class="primary-btn pd-cart">Add To
+                                        Cart</a>
                                 </div>
                                 <ul class="pd-tags">
                                     <li><span>CATEGORIES</span>: {{ $product->productCategory->name }}</li>
-                                    <li><span>TAGS</span>: {{ $product->tag }}</li>
+                                    <li><span>BRANDS</span>: {{ $product->brand->name }}</li>
+                                    <li><span>TAGS</span>:
+                                        @if ($product->tag)
+
+                                            @foreach (json_decode($product->tag, true) ?? [] as $tags)
+                                                <label class="label label-info">{{ $tags }}</label>
+                                            @endforeach
+                                        @endif
+                                    </li>
                                 </ul>
                                 <div class="pd-share">
-                                    <div class="p-code">Sku : {{ $product->sku }}</div>
                                     <div class="pd-social">
                                         <a href="#"><i class="ti-facebook"></i></a>
                                         <a href="#"><i class="ti-twitter-alt"></i></a>
@@ -122,7 +110,7 @@
                                     <a data-toggle="tab" href="#tab-2" role="tab">SPECIFICATIONS</a>
                                 </li>
                                 <li>
-                                    <a data-toggle="tab" href="#tab-3" role="tab">Customer Reviews (02)</a>
+                                    <a data-toggle="tab" href="#tab-3" role="tab">Customer Reviews</a>
                                 </li>
                             </ul>
                         </div>
@@ -157,48 +145,8 @@
                                                 <td class="p-catagory">Price</td>
                                                 <td>
                                                     <div class="p-price">
-                                                        @if ($product->discount != null)
-                                                            ${{ $product->discount }}
-                                                        @else
-                                                            ${{ $product->price }}
-                                                        @endif
+                                                        {{ $product->price }}
                                                     </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="p-catagory">Availability</td>
-                                                <td>
-                                                    <div class="p-stock">{{ $product->qty }}</div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="p-catagory">Weight</td>
-                                                <td>
-                                                    <div class="p-weight">{{ $product->weight }} kg</div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="p-catagory">Size</td>
-                                                <td>
-                                                    <div class="p-size">
-                                                        @foreach (array_unique(array_column($product->productDetails->toArray(), 'size')) as $productSize)
-                                                            {{ $productSize }},
-                                                        @endforeach
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="p-catagory">Color</td>
-                                                <td>
-                                                    @foreach (array_unique(array_column($product->productDetails->toArray(), 'color')) as $productColor)
-                                                        <span class="cs-{{ $productColor }}"></span>
-                                                    @endforeach
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="p-catagory">Sku</td>
-                                                <td>
-                                                    <div class="p-code">{{ $product->sku }}</div>
                                                 </td>
                                             </tr>
                                         </table>
@@ -219,7 +167,6 @@
                                                         <div class="at-rating">
                                                             @for ($i = 1; $i < 5; $i++)
                                                                 @if ($i <= $productComment->rating)
-                                                                    
                                                                     <i class="fa fa-star"></i>
                                                                 @else
                                                                     <i class="fa fa-star-o"></i>
@@ -316,9 +263,7 @@
                             <div class="pi-pic">
                                 <img src="frontend/img/products/{{ $relatedProduct->productImages[0]->path }}"
                                     alt="">
-                                @if ($relatedProduct->discount != null)
-                                    <div class="sale">Sale</div>
-                                @endif
+                               
                                 <div class="icon">
                                     <i class="icon_heart_alt"></i>
                                 </div>
@@ -330,17 +275,12 @@
                                 </ul>
                             </div>
                             <div class="pi-text">
-                                <div class="catagory-name">{{ $relatedProduct->tag }}</div>
+                                {{-- <div class="catagory-name">{{ $relatedProduct->tag }}</div> --}}
                                 <a href="shop/product/{{ $relatedProduct->id }}">
                                     <h5>{{ $relatedProduct->name }}</h5>
                                 </a>
                                 <div class="product-price">
-                                    @if ($relatedProduct->discount != null)
-                                        ${{ $relatedProduct->discount }}
-                                        <span>${{ $relatedProduct->price }}</span>
-                                    @else
-                                        ${{ $relatedProduct->price }}
-                                    @endif
+                                    ${{ $relatedProduct->price }}
                                 </div>
                             </div>
                         </div>

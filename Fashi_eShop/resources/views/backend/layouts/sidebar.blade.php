@@ -48,12 +48,12 @@
                         <li>
                             <a href="./admin/category"
                                 class="{{ request()->segment(2) == 'category' ? 'mm-active' : '' }}">
-                                <i class="metismenu-icon"></i>Category
+                                <i class="metismenu-icon"></i>Product Category
                             </a>
                         </li>
                         <li>
                             <a href="./admin/brand" class="{{ request()->segment(2) == 'brand' ? 'mm-active' : '' }}">
-                                <i class="metismenu-icon"></i>Brand
+                                <i class="metismenu-icon"></i>Product Brand
                             </a>
                         </li>
                         <li>
@@ -66,6 +66,12 @@
                             <a href="./admin/blog"
                                 class="{{ request()->segment(2) == 'blog' ? 'mm-active' : '' }}">
                                 <i class="metismenu-icon"></i>Blog
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./admin/blogcategory"
+                                class="{{ request()->segment(2) == 'blogcategory' ? 'mm-active' : '' }}">
+                                <i class="metismenu-icon"></i>Blog Category
                             </a>
                         </li>
                         <li>

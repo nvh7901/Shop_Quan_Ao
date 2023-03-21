@@ -11,11 +11,12 @@
                         <form method="post" action="/admin/product/{{ $products->id }}" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
+
                             <div class="position-relative row form-group">
                                 <label for="brand_id" class="col-md-3 text-md-right col-form-label">Brand</label>
                                 <div class="col-md-9 col-xl-8">
-                                    <select required name="brand_id" id="brand_id" class="form-control">
-                                        <option value="">-- Brand --</option>
+                                    <select name="brand_id" id="brand_id" class="form-control">
+                                        <option value="-1">-- Brand --</option>
                                         @foreach ($brands as $brand)
                                             <option value={{ $brand->id }}
                                                 {{ $products->brand_id == $brand->id ? 'selected' : '' }}>
@@ -30,9 +31,8 @@
                                 <label for="product_category_id"
                                     class="col-md-3 text-md-right col-form-label">Category</label>
                                 <div class="col-md-9 col-xl-8">
-                                    <select required name="product_category_id" id="product_category_id"
-                                        class="form-control">
-                                        <option value="">-- Category --</option>
+                                    <select name="product_category_id" id="product_category_id" class="form-control">
+                                        <option value="-1">-- Category --</option>
                                         @foreach ($productCategories as $productCategory)
                                             <option value={{ $productCategory->id }}
                                                 {{ $products->product_category_id == $productCategory->id ? 'selected' : '' }}>
@@ -46,56 +46,33 @@
                             <div class="position-relative row form-group">
                                 <label for="name" class="col-md-3 text-md-right col-form-label">Name</label>
                                 <div class="col-md-9 col-xl-8">
-                                    <input required name="name" id="name" placeholder="Name" type="text"
+                                    <input name="name" id="name" placeholder="Name" type="text"
                                         class="form-control" value="{{ $products->name }}">
                                 </div>
                             </div>
 
-                            <div class="position-relative row form-group">
-                                <label for="content" class="col-md-3 text-md-right col-form-label">Content</label>
-                                <div class="col-md-9 col-xl-8">
-                                    <input required name="content" id="content" placeholder="Content" type="text"
-                                        class="form-control" value="{{ $products->content }}">
-                                </div>
-                            </div>
 
                             <div class="position-relative row form-group">
                                 <label for="price" class="col-md-3 text-md-right col-form-label">Price</label>
                                 <div class="col-md-9 col-xl-8">
-                                    <input required name="price" id="price" placeholder="Price" type="text"
+                                    <input name="price" id="price" placeholder="Price" type="text"
                                         class="form-control" value="{{ $products->price }}">
                                 </div>
                             </div>
 
-                            <div class="position-relative row form-group">
-                                <label for="discount" class="col-md-3 text-md-right col-form-label">Discount</label>
+                            {{-- <div class="position-relative row form-group">
+                                <label for="tag " class="col-md-3 text-md-right col-form-label">Tag</label>
                                 <div class="col-md-9 col-xl-8">
-                                    <input required name="discount" id="discount" placeholder="Discount" type="text"
-                                        class="form-control" value="{{ $products->discount }}">
+                                    <input type="text" name="tag" class="form-control" data-role="tagsinput"
+                                        value="{{ implode(',', Json_decode($products->tag, true)) }}">
                                 </div>
-                            </div>
-
-                            <div class="position-relative row form-group">
-                                <label for="weight" class="col-md-3 text-md-right col-form-label">Weight</label>
-                                <div class="col-md-9 col-xl-8">
-                                    <input required name="weight" id="weight" placeholder="Weight" type="text"
-                                        class="form-control" value="{{ $products->weight }}">
-                                </div>
-                            </div>
-
-                            <div class="position-relative row form-group">
-                                <label for="sku" class="col-md-3 text-md-right col-form-label">SKU</label>
-                                <div class="col-md-9 col-xl-8">
-                                    <input required name="sku" id="sku" placeholder="SKU" type="text"
-                                        class="form-control" value="{{ $products->sku }}">
-                                </div>
-                            </div>
-
+                            </div> --}}
                             <div class="position-relative row form-group">
                                 <label for="tag" class="col-md-3 text-md-right col-form-label">Tag</label>
                                 <div class="col-md-9 col-xl-8">
-                                    <input required name="tag" id="tag" placeholder="Tag" type="text"
-                                        class="form-control" value="{{ $products->tag }}">
+                                    <input name="tag" id="tag" placeholder="Tag" type="text"
+                                        data-role="tagsinput" class="form-control"  
+                                        value="{{ implode(',', Json_decode($products->tag, true)) }}">
                                 </div>
                             </div>
 
@@ -105,7 +82,12 @@
                                     <div class="position-relative form-check pt-sm-2">
                                         <input name="featured" id="featured" type="checkbox" value="1"
                                             class="form-check-input" {{ $products->featured ? 'checked' : '' }}>
-                                        <label for="featured" class="form-check-label">Featured</label>
+                                        <label for="featured" class="form-check-label">Yes</label>
+                                    </div>
+                                    <div class="position-relative form-check pt-sm-2">
+                                        <input name="featured" id="featured" type="checkbox" value="0"
+                                            class="form-check-input" {{ $products->featured ? '' : 'checked' }}>
+                                        <label for="featured" class="form-check-label">No</label>
                                     </div>
                                 </div>
                             </div>

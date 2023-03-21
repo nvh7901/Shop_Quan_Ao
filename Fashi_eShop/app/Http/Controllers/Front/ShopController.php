@@ -71,7 +71,7 @@ class ShopController extends Controller
         $brands = $this->brandService->all();
         // Lọc tất cả sản phẩm theo categories
 
-        $products = $this->productService->getProductByCategory($categoryName,  $request);;
+        $products = $this->productService->getProductByCategory($categoryName,  $request);
         return view('frontend.shop.index', compact('products', 'categories', 'brands'));
         // ->with(compact('products'))
         // ->with(compact('categories'));

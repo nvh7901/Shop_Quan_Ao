@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductRequest;
 use App\Service\Brand\BrandServiceInterface;
 use App\Service\Product\ProductServiceInterface;
 use App\Service\ProductCategory\ProductCategoryServiceInterface;
@@ -13,15 +14,14 @@ class ProductController extends Controller
     private $productService;
     private $brandService;
     private $productCategoryService;
-    public function __construct(
-        ProductServiceInterface $productService,
-        BrandServiceInterface $brandService,
-        ProductCategoryServiceInterface $productCategoryService
-    ) {
+
+    public function __construct(ProductServiceInterface $productService, BrandServiceInterface $brandService, ProductCategoryServiceInterface $productCategoryService)
+    {
         $this->productService = $productService;
         $this->brandService = $brandService;
         $this->productCategoryService = $productCategoryService;
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -30,6 +30,7 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $products = $this->productService->searchAndPaginate('name', $request->get('search'));
+
         return view('backend.product.index')->with(compact('products'));
     }
 
@@ -42,6 +43,7 @@ class ProductController extends Controller
     {
         $brands = $this->brandService->all();
         $productCategories = $this->productCategoryService->all();
+
         return view('backend.product.create')
             ->with(compact('brands'))
             ->with(compact('productCategories'));
@@ -50,22 +52,33 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        $data['qty'] = 0; //Mặc định khi thêm sản phẩm số lượng = 0. Khi nào muốn thay đổi số lượng thì lúc đấy sẽ edit sản phẩm
-        $product = $this->productService->create($data);
+        $tags = explode(',', $request->tag);
+        $params = [
+            'brand_id' => $request->brand_id,
+            'product_category_id' => $request->product_category_id,
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price,
+            'featured' => $request->featured,
+            'tag' => json_encode($tags),
+        ];
 
-        return redirect('admin/product')->with('notification', 'Thêm sản phẩm thành công !');
+        $data = $this->productService->create($params);
+
+        if ($data) {
+            return redirect('admin/product')->with('notification', 'Thêm Product thành công !');
+        }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -78,7 +91,8 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -97,29 +111,41 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $data = $request->all();
+        $tags = explode(',', $request->tag);
+        $params = [
+            'brand_id' => $request->brand_id,
+            'product_category_id' => $request->product_category_id,
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price,
+            'featured' => $request->featured,
+            'tag' => json_encode($tags),
+        ];
 
-        $this->productService->update($data, $id);
-
-        return redirect('admin/product')->with('notification', 'Sửa sản phẩm thành công');
+        $data = $this->productService->update($params, $id);
+        if ($data) {
+            return redirect('admin/product')->with('notification', 'Sửa Product thành công !');
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $this->productService->delete($id);
+        $data = $this->productService->delete($id);
 
-        return redirect('admin/product')->with('notification', 'Xóa sản phẩm thành công');
+        return redirect('admin/product')->with('notification', 'Xóa Product thành công !');
     }
 }

@@ -19,9 +19,27 @@
 
     <link href="./backend/main.css" rel="stylesheet">
     <link href="./backend/my_style.css" rel="stylesheet">
+    <link href="./backend/bootstrap-tagsinput.css" rel="stylesheet">
+
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css"
+        rel="stylesheet" />
+
+    <style type="text/css">
+        .bootstrap-tagsinput .tag {
+            margin-right: 2px;
+            color: #ffffff;
+            background: #2196f3;
+            padding: 3px 7px;
+            border-radius: 3px;
+        }
+
+        .bootstrap-tagsinput {
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
@@ -253,9 +271,9 @@
                             <div class="widget-content-wrapper">
                                 <div class="widget-content-left">
                                     <div class="btn-group">
-                                        <img width="50" class="rounded-circle"
+                                        {{-- <img width="50" class="rounded-circle"
                                             src="frontend/img/user/{{ Auth::user()->avatar ?? 'default-avatar.jpg' }}"
-                                            alt="">
+                                            alt=""> --}}
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                             class="p-0 btn">
 
@@ -271,11 +289,11 @@
                                                     <div class="menu-header-content text-left">
                                                         <div class="widget-content p-0">
                                                             <div class="widget-content-wrapper">
-                                                                <div class="widget-content-left mr-3">
+                                                                {{-- <div class="widget-content-left mr-3">
                                                                     <img width="60" class="rounded-circle"
                                                                         src="frontend/img/user/{{ Auth::user()->avatar ?? 'default-avatar.jpg' }}"
                                                                         alt="">
-                                                                </div>
+                                                                </div> --}}
                                                                 <div class="widget-content-left">
                                                                     <div class="widget-heading">
                                                                         {{ Auth::user()->name ?? '' }}</div>
@@ -834,7 +852,32 @@
 
     <script type="text/javascript" src="./backend/assets/scripts/main.js"></script>
     <script type="text/javascript" src="./backend/assets/scripts/my_script.js"></script>
-    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
+    {{-- <script>
+        $(function() {
+            $('input').on('change', function(event) {
+
+                var $element = $(event.target);
+                var $container = $element.closest('.example');
+
+                if (!$element.data('tagsinput'))
+                    return;
+
+                var val = $element.val();
+                if (val === null)
+                    val = "null";
+                var items = $element.tagsinput('items');
+
+                $('code', $('pre.val', $container)).html(($.isArray(val) ? JSON.stringify(val) : "\"" + val
+                    .replace('"', '\\"') + "\""));
+                $('code', $('pre.items', $container)).html(JSON.stringify($element.tagsinput('items')));
+
+
+            }).trigger('change');
+        });
+    </script> --}}
+
 </body>
 
 </html>

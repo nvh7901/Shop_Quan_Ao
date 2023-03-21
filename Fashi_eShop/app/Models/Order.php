@@ -11,7 +11,16 @@ class Order extends Model
 
     protected $table = 'orders';
     protected $primaryKey = 'id';
-    protected $guarded = [];
+    protected $fillable = [
+        'user_id',
+        'name',
+        'street_address',
+        'town_city',
+        'email',
+        'phone',
+        'payment_type',
+        'status',
+    ];
 
     public function orderDetails()
     {

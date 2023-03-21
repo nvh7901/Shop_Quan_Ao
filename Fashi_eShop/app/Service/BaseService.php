@@ -31,7 +31,7 @@ class BaseService implements ServiceInterface
       return $this->repository->delete($id);
    }
 
-   public function searchAndPaginate($searchBy, $keyword, $perPage = 5)
+   public function searchAndPaginate($searchBy, $keyword, $perPage = 6)
    {
       return $this->repository->searchAndPaginate($searchBy, $keyword, $perPage);
    }

@@ -21,6 +21,7 @@ use App\Service\Order\OrderServiceInterface;
 use App\Repositories\Product\ProductRepository;
 use App\Service\OrderDetail\OrderDetailService;
 use App\Service\Product\ProductServiceInterface;
+use App\Service\BlogCategory\BlogCategoryService;
 use App\Repositories\Blog\BlogRepositoryInterface;
 use App\Repositories\User\UserRepositoryInterface;
 use App\Repositories\Brand\BrandRepositoryInterface;
@@ -30,11 +31,14 @@ use App\Repositories\OrderDetail\OrderDetailRepository;
 use App\Service\ProductCategory\ProductCategoryService;
 use App\Repositories\Product\ProductRepositoryInterface;
 use App\Service\OrderDetail\OrderDetailServiceInterface;
+use App\Repositories\BlogCategory\BlogCategoryRepository;
+use App\Service\BlogCategory\BlogCategoryServiceInterface;
 use App\Repositories\ProductComment\ProductCommentRepository;
 use App\Service\ProductComment\ProductCommentServiceInterface;
 use App\Repositories\ProductCategory\ProductCategoryRepository;
 use App\Repositories\OrderDetail\OrderDetailRepositoryInterface;
 use App\Service\ProductCategory\ProductCategoryServiceInterface;
+use App\Repositories\BlogCategory\BlogCategoryRepositoryInterface;
 use App\Repositories\ProductComment\ProductCommentRepositoryInterface;
 use App\Repositories\ProductCategory\ProductCategoryRepositoryInterface;
 
@@ -121,6 +125,17 @@ class AppServiceProvider extends ServiceProvider
             UserServiceInterface::class,
             UserService::class,
         );
+        // BlogCategory
+        $this->app->singleton( 
+            BlogCategoryRepositoryInterface::class,
+            BlogCategoryRepository::class,
+        );
+        $this->app->singleton( 
+            BlogCategoryServiceInterface::class,
+            BlogCategoryService::class,
+        );
+        // ProductDetail
+       
     }
 
     /**

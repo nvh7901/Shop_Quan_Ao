@@ -7,14 +7,16 @@ use App\Service\Order\OrderServiceInterface;
 use App\Service\OrderDetail\OrderDetailServiceInterface;
 use App\Utilities\Constant;
 use App\Utilities\VNPay;
-use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
 class CheckOutController extends Controller
 {
     private $orderService;
     private $orderDetailService;
+
     // Hàm khởi tạo
     public function __construct(
         OrderServiceInterface $orderService,
@@ -23,37 +25,60 @@ class CheckOutController extends Controller
         $this->orderService = $orderService;
         $this->orderDetailService = $orderDetailService;
     }
+
     // Trang checkout
     public function index()
     {
         $carts = Cart::content();
         $total = Cart::total();
         $subtotal = Cart::subtotal();
+
         return view('frontend.checkout.index')
             ->with(compact('carts'))
             ->with(compact('total'))
             ->with(compact('subtotal'));
     }
+
     // Chi tiết hóa đơn
     public function addOrder(Request $request)
     {
         // Tạo mới đơn hàng
-        $data = $request->all();
-        $data['status'] = Constant::order_status_ReceiveOrders;
+        $params = [
+            'user_id' => $request->user_id,
+            'name' => $request->name,
+            'email' => $request->email,
+            'town_city' => $request->town_city,
+            'street_address' => $request->street_address,
+            'phone' => $request->phone,
+            'payment_type' => $request->payment_type,
+        ];
+        // dd($params);
+        $params['status'] = Constant::order_status_ReceiveOrders;
 
-        $order = $this->orderService->create($data);
+        $order = $this->orderService->create($params);
         // Tạo chi tiết đơn hàng
         $carts = Cart::content();
+        DB::beginTransaction();
+        try {
+            foreach ($carts as $cart) {
+                $params = [
+                    'order_id' => $order->id,
+                    'product_id' => $cart->id,
+                    'qty' => $cart->qty,
+                    'amount' => $cart->price,
+                    'total' => $cart->qty * $cart->price,
+                ];
+                $this->orderDetailService->create($params);
 
-        foreach ($carts as $cart) {
-            $data = [
-                'order_id' => $order->id,
-                'product_id' => $cart->id,
-                'qty' => $cart->qty,
-                'amount' => $cart->price,
-                'total' => $cart->qty * $cart->price,
-            ];
-            $this->orderDetailService->create($data);
+                DB::table('product_details')
+                    ->where('product_id', $cart->id)
+                    // ->where('size', $cart->options['size'])
+                    ->decrement('qty', $cart->qty);
+            }
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+            throw $e;
         }
         // Kiểm tra hình thức chọn thanh toán
         if ($request->payment_type == 'pay_later') {
@@ -70,14 +95,13 @@ class CheckOutController extends Controller
         }
         // Thanh toán online
         if ($request->payment_type == 'online_payment') {
-
             // Lấy URL thanh toán
             $data_url = VNPay::vnpay_create_payment([
                 'vnp_TxnRef' => $order->id,
                 'vnp_OrderInfo' => 'Mô tả đơn hàng',
-                'vnp_Amount' => Cart::total(0, '', '') * 23070,
+                'vnp_Amount' => Cart::total(0, '', '') * 23675,
             ]);
-
+            
             return redirect()->to($data_url);
         }
     }
@@ -86,9 +110,11 @@ class CheckOutController extends Controller
     public function result()
     {
         $notification = session('notification');
+
         return view('frontend.checkout.result')
             ->with(compact('notification'));
     }
+
     // Thanh toán vnpay
     public function vnPayCheck(Request $request)
     {
@@ -122,6 +148,7 @@ class CheckOutController extends Controller
             }
         }
     }
+
     // Gửi Mail
     public function sendMail($order, $total, $subtotal)
     {

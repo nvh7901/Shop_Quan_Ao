@@ -1,10 +1,9 @@
-<div class="product-item item {{ $product->tag }}">
+<div
+    class="product-item item
+    @foreach (json_decode($product->tag, true) ?? [] as $tag)                                    
+        {{ $tag }} @endforeach">
     <div class="pi-pic">
         <img src="frontend/img/products/{{ $product->productImages[0]->path ?? ' ' }}" alt="">
-        @if ($product->discount != null)
-            <div class="sale">Sale</div>
-        @endif
-
         <div class="icon">
             <i class="icon_heart_alt"></i>
         </div>
@@ -15,21 +14,15 @@
                 </a>
             </li>
             <li class="quick-view"><a href="shop/product/{{ $product->id }}">+ Quick View</a></li>
-            <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
         </ul>
     </div>
     <div class="pi-text">
-        <div class="catagory-name">{{ $product->tag }}</div>
+        <div class="catagory-name" style="font-size: 16px">{{ $product->productCategory->name }}</div>
         <a href="shop/product/{{ $product->id }}">
-            <h5>{{ $product->name }}</h5>
+            <h4>{{ $product->name }}</h2>
         </a>
         <div class="product-price">
-            @if ($product->discount != null)
-                ${{ $product->discount }}
-                <span>${{ $product->price }}</span>
-            @else
-                ${{ $product->price }}
-            @endif
+            ${{ $product->price }}
         </div>
     </div>
 </div>

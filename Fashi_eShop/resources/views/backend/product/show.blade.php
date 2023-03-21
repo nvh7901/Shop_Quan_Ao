@@ -43,7 +43,7 @@
 
                         <div class="position-relative row form-group">
                             <label for="brand_id" class="col-md-3 text-md-right col-form-label"
-                                style="padding-top: 0px;">Brand</label>
+                                style="padding-top: 0px;">Product Brand</label>
                             <div class="col-md-9 col-xl-8">
                                 <p>{{ $products->brand->name }}</p>
                             </div>
@@ -51,7 +51,7 @@
 
                         <div class="position-relative row form-group">
                             <label for="product_category_id" class="col-md-3 text-md-right col-form-label"
-                                style="padding-top: 0px;">Category</label>
+                                style="padding-top: 0px;">Product Category</label>
                             <div class="col-md-9 col-xl-8">
                                 <p>{{ $products->productCategory->name }}</p>
                             </div>
@@ -66,14 +66,6 @@
                         </div>
 
                         <div class="position-relative row form-group">
-                            <label for="content" class="col-md-3 text-md-right col-form-label"
-                                style="padding-top: 0px;">Content</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>{{ $products->content }}</p>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
                             <label for="price" class="col-md-3 text-md-right col-form-label"
                                 style="padding-top: 0px;">Price</label>
                             <div class="col-md-9 col-xl-8">
@@ -82,42 +74,14 @@
                         </div>
 
                         <div class="position-relative row form-group">
-                            <label for="discount" class="col-md-3 text-md-right col-form-label"
-                                style="padding-top: 0px;">Discount</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>${{ $products->discount }}</p>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="qty" class="col-md-3 text-md-right col-form-label"
-                                style="padding-top: 0px;">Qty</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>{{ $products->qty }}</p>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="weight" class="col-md-3 text-md-right col-form-label"
-                                style="padding-top: 0px;">Weight</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>{{ $products->weight }}</p>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="sku" class="col-md-3 text-md-right col-form-label"
-                                style="padding-top: 0px;">SKU</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>{{ $products->sku }}</p>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
                             <label for="tag" class="col-md-3 text-md-right col-form-label"
                                 style="padding-top: 0px;">Tag</label>
                             <div class="col-md-9 col-xl-8">
-                                <p>{{ $products->tag }}</p>
+                                <p>
+                                    @foreach (json_decode($products->tag, true) ?? [] as $tag)
+                                        <label class="label label-info border">{{ $tag }}</label>
+                                    @endforeach
+                                </p>
                             </div>
                         </div>
 
@@ -125,7 +89,15 @@
                             <label for="featured" class="col-md-3 text-md-right col-form-label"
                                 style="padding-top: 0px;">Featured</label>
                             <div class="col-md-9 col-xl-8">
-                                <p>{{ $products->featured ? 'Yes' : 'No' }}</p>
+                                @if ($products->featured == 1)
+                                    <div class="badge badge-success mt-2">
+                                        {{ $products->featured ? 'Yes' : 'No' }}
+                                    </div>
+                                @else
+                                    <div class="badge badge-danger mt-2">
+                                        {{ $products->featured ? '' : 'No' }}
+                                    </div>
+                                @endif
                             </div>
                         </div>
 
