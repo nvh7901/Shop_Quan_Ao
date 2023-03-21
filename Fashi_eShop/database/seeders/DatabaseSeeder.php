@@ -24,102 +24,9 @@ class DatabaseSeeder extends Seeder
                 'password' => Hash::make('123456'),
                 'avatar' => null,
                 'level' => 2,
-                'description' => null,
-
-                'company_name' => 'Ngô Văn Huy',
-                'country' => 'Việt Nam',
                 'street_address' => 'Lê Quang Đạo',
-                'postcode_zip' => '10000',
-                'town_city' => 'Hà Nội',
+                'city' => 'Hà Nội',
                 'phone' => '0868761196',
-            ],
-        ]);
-        DB::table('users')->insert([
-            [
-                'id' => 1,
-                'name' => 'CodeLean',
-                'email' => 'CodeLean@gmail.com',
-                'password' => Hash::make('123456'),
-                'avatar' => null,
-                'level' => 0,
-                'description' => null,
-            ],
-            [
-                'id' => 3,
-                'name' => 'Shane Lynch',
-                'email' => 'ShaneLynch@gmail.com',
-                'password' => Hash::make('123456'),
-                'avatar' => 'avatar-0.png',
-                'level' => 1,
-                'description' => 'Aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum bore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud amodo',
-            ],
-            [
-                'id' => 4,
-                'name' => 'Brandon Kelley',
-                'email' => 'BrandonKelley@gmail.com',
-                'password' => Hash::make('123456'),
-                'avatar' => 'avatar-1.png',
-                'level' => 1,
-                'description' => null,
-            ],
-            [
-                'id' => 5,
-                'name' => 'Roy Banks',
-                'email' => 'RoyBanks@gmail.com',
-                'password' => Hash::make('123456'),
-                'avatar' => 'avatar-2.png',
-                'level' => 1,
-                'description' => null,
-            ],
-        ]);
-
-        DB::table('blogs')->insert([
-            [
-                'user_id' => 3,
-
-                'blog_category_id' => 1,
-                'title' => 'The Personality Trait That Makes People Happier',
-                'subtitle' => 'ABCDRF',
-                'image' => 'blog-1.jpg',
-                'content' => '',
-            ],
-            [
-                'user_id' => 3,
-                'blog_category_id' => 2,
-                'title' => 'This was one of our first days in Hawaii last week.',
-                'subtitle' => 'ABCDRF',
-                'image' => 'blog-2.jpg',
-                'content' => '',
-            ],
-            [
-                'user_id' => 3,
-                'blog_category_id' => 1,
-                'title' => 'Last week I had my first work trip of the year to Sonoma Valley',
-                'subtitle' => 'ABCDRF',
-                'image' => 'blog-3.jpg',
-                'content' => '',
-            ],
-        ]);
-        DB::table('blog_categories')->insert([
-            [
-                'name' => 'TRAVEL',
-            ],
-            [
-                'name' => 'CodeLeanON',
-            ],
-        ]);
-        DB::table('brands')->insert([
-            [
-                'name' => 'Calvin Klein',
-            ],
-            [
-                'name' => 'Diesel',
-            ],
-            [
-                'name' => 'Polo',
-            ],
-            [
-                'name' => 'Tommy Hilfiger',
             ],
         ]);
 
@@ -138,7 +45,6 @@ class DatabaseSeeder extends Seeder
         DB::table('products')->insert([
             [
                 'id' => 1,
-                'brand_id' => 1,
                 'product_category_id' => 2,
                 'name' => 'Pure Pineapple',
                 'description' => 'Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor sum dolor sit amet, consectetur adipisicing elit, sed do mod tempor',
@@ -153,7 +59,6 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'id' => 2,
-                'brand_id' => 2,
                 'product_category_id' => 2,
                 'name' => 'Guangzhou sweater',
                 'description' => null,
@@ -168,7 +73,6 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'id' => 3,
-                'brand_id' => 3,
                 'product_category_id' => 2,
                 'name' => 'Guangzhou sweater',
                 'description' => null,
@@ -183,7 +87,6 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'id' => 4,
-                'brand_id' => 4,
                 'product_category_id' => 1,
                 'name' => 'Microfiber Wool Scarf',
                 'description' => null,
@@ -198,7 +101,6 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'id' => 5,
-                'brand_id' => 1,
                 'product_category_id' => 3,
                 'name' => "Men's Painted Hat",
                 'description' => null,
@@ -213,7 +115,6 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'id' => 6,
-                'brand_id' => 1,
                 'product_category_id' => 2,
                 'name' => 'Converse Shoes',
                 'description' => null,
@@ -228,7 +129,6 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'id' => 7,
-                'brand_id' => 1,
                 'product_category_id' => 1,
                 'name' => 'Pure Pineapple',
                 'description' => null,
@@ -243,7 +143,6 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'id' => 8,
-                'brand_id' => 1,
                 'product_category_id' => 1,
                 'name' => '2 Layer Windbreaker',
                 'description' => null,
@@ -258,7 +157,6 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'id' => 9,
-                'brand_id' => 1,
                 'product_category_id' => 1,
                 'name' => 'Converse Shoes',
                 'description' => null,

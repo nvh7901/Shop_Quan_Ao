@@ -74,9 +74,6 @@
                                                     <div class="widget-content-left flex2">
                                                         <div class="widget-heading">{{ $product->name }}</div>
                                                         <div class="widget-subheading opacity-7">
-                                                            Brand: {{ $product->brand->name }}
-                                                        </div>
-                                                        <div class="widget-subheading opacity-7">
                                                             Category: {{ $product->productCategory->name }}
                                                         </div>
                                                     </div>

@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Admin\BlogController;
-use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -97,8 +96,6 @@ Route::prefix('admin')->middleware('CheckAdminLogin')->group(function () {
    Route::resource('user', App\Http\Controllers\Admin\UserController::class);
    // Route quản lý category
    Route::resource('category', ProductCategoryController::class);
-   // Route quản lý brand
-   Route::resource('brand', BrandController::class);
    // Route quản lý product
    Route::resource('product', ProductController::class);
    // Route quản lý image
@@ -113,6 +110,6 @@ Route::prefix('admin')->middleware('CheckAdminLogin')->group(function () {
    Route::resource('blogcategory', BlogCategoryController::class);
 });
 
-Auth::routes();
+// Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

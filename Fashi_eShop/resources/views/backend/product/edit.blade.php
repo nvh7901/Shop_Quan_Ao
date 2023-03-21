@@ -13,21 +13,6 @@
                             @method('PUT')
 
                             <div class="position-relative row form-group">
-                                <label for="brand_id" class="col-md-3 text-md-right col-form-label">Brand</label>
-                                <div class="col-md-9 col-xl-8">
-                                    <select name="brand_id" id="brand_id" class="form-control">
-                                        <option value="-1">-- Brand --</option>
-                                        @foreach ($brands as $brand)
-                                            <option value={{ $brand->id }}
-                                                {{ $products->brand_id == $brand->id ? 'selected' : '' }}>
-                                                {{ $brand->name }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="position-relative row form-group">
                                 <label for="product_category_id"
                                     class="col-md-3 text-md-right col-form-label">Category</label>
                                 <div class="col-md-9 col-xl-8">

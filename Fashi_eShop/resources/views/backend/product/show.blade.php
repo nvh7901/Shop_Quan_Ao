@@ -42,14 +42,6 @@
                         </div>
 
                         <div class="position-relative row form-group">
-                            <label for="brand_id" class="col-md-3 text-md-right col-form-label"
-                                style="padding-top: 0px;">Product Brand</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>{{ $products->brand->name }}</p>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
                             <label for="product_category_id" class="col-md-3 text-md-right col-form-label"
                                 style="padding-top: 0px;">Product Category</label>
                             <div class="col-md-9 col-xl-8">

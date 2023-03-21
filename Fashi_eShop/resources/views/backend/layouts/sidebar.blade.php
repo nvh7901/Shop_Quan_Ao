@@ -52,11 +52,6 @@
                             </a>
                         </li>
                         <li>
-                            <a href="./admin/brand" class="{{ request()->segment(2) == 'brand' ? 'mm-active' : '' }}">
-                                <i class="metismenu-icon"></i>Product Brand
-                            </a>
-                        </li>
-                        <li>
                             <a href="./admin/product"
                                 class="{{ request()->segment(2) == 'product' ? 'mm-active' : '' }}">
                                 <i class="metismenu-icon"></i>Product

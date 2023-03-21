@@ -32,16 +32,27 @@
                                 </div>
                             </div>
                             <div class="product-thumbs">
-                                @foreach ($product->productImages as $productImage)
-                                    <div class="product-thumbs-track ps-slider owl-carousel">
-
-                                        <div class="pt active"
-                                            data-ingbigurl="frontend/img/products/{{ $productImage->path }}">
-                                            <img src="frontend/img/products/{{ $productImage->path }}" alt="">
+                                <div class="product-thumbs-track ps-slider owl-carousel owl-loaded owl-drag">
+                                    <div class="owl-stage-outer">
+                                        <div class="owl-stage"
+                                            style="transform: translate3d(-139px, 0px, 0px); transition: all 1.2s ease 0s; width: 559px;">
+                                            @foreach ($product->productImages as $productImage)
+                                                <div class="owl-item" style="width: 129.583px; margin-right: 10px;">
+                                                    <div class="pt active"
+                                                        data-ingbigurl="frontend/img/products/{{ $productImage->path }}">
+                                                        <img src="frontend/img/products/{{ $productImage->path }}"
+                                                            alt="">
+                                                    </div>
+                                                </div>
+                                            @endforeach
                                         </div>
-
                                     </div>
-                                @endforeach
+                                    <div class="owl-nav"><button type="button" role="presentation" class="owl-prev"><i
+                                                class="fa fa-angle-left"></i></button><button type="button"
+                                            role="presentation" class="owl-next disabled"><i
+                                                class="fa fa-angle-right"></i></button></div>
+                                    <div class="owl-dots disabled"></div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -80,7 +91,6 @@
                                 </div>
                                 <ul class="pd-tags">
                                     <li><span>CATEGORIES</span>: {{ $product->productCategory->name }}</li>
-                                    <li><span>BRANDS</span>: {{ $product->brand->name }}</li>
                                     <li><span>TAGS</span>:
                                         @if ($product->tag)
 
@@ -263,7 +273,7 @@
                             <div class="pi-pic">
                                 <img src="frontend/img/products/{{ $relatedProduct->productImages[0]->path }}"
                                     alt="">
-                               
+
                                 <div class="icon">
                                     <i class="icon_heart_alt"></i>
                                 </div>

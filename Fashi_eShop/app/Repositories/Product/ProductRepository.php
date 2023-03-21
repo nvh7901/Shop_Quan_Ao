@@ -18,8 +18,8 @@ class ProductRepository extends BaseRepositories implements ProductRepositoryInt
     public function getRelatedProducts($product)
     {
         return $this->model->where('product_category_id', $product->product_category_id)
-         ->where('tag', json_decode($product->tag))
-         ->limit(4)->get();
+            ->where('tag', json_decode($product->tag))
+            ->limit(4)->get();
     }
 
     // Sản phẩm nổi bật trang index
@@ -33,7 +33,7 @@ class ProductRepository extends BaseRepositories implements ProductRepositoryInt
     {
         // Tìm kiếm sản phẩm
         $search = $request->search ?? '';
-        $products = $this->model->where('name', 'like', '%'.$search.'%');
+        $products = $this->model->where('name', 'like', '%' . $search . '%');
         // Lọc sản phẩm
         $products = $this->filter($products, $request);
         // Phân trang
@@ -47,8 +47,6 @@ class ProductRepository extends BaseRepositories implements ProductRepositoryInt
     {
         // Lọc sản phẩm theo categories
         $products = ProductCategory::where('name', $categoryName)->first()->product->toQuery();
-        // Lọc sản phẩm theo brands
-        $products = $this->filter($products, $request);
         // Phân trang
         $products = $this->sortAndPagination($products, $request);
 
@@ -62,27 +60,27 @@ class ProductRepository extends BaseRepositories implements ProductRepositoryInt
         $sortBy = $request->sort_by ?? 'latest';
 
         switch ($sortBy) {
-         case 'latest':
-            $products = $products->orderBy('id');
-            break;
-         case 'oldest':
-            $products = $products->orderByDesc('id');
-            break;
-         case 'name-ascending':
-            $products = $products->orderBy('name');
-            break;
-         case 'name-descending':
-            $products = $products->orderByDesc('name');
-            break;
-         case 'price-ascending':
-            $products = $products->orderBy('price');
-            break;
-         case 'price-descending':
-            $products = $products->orderByDesc('price');
-            break;
-         default:
-            $products = $products->orderBy('id');
-      }
+            case 'latest':
+                $products = $products->orderBy('id');
+                break;
+            case 'oldest':
+                $products = $products->orderByDesc('id');
+                break;
+            case 'name-ascending':
+                $products = $products->orderBy('name');
+                break;
+            case 'name-descending':
+                $products = $products->orderByDesc('name');
+                break;
+            case 'price-ascending':
+                $products = $products->orderBy('price');
+                break;
+            case 'price-descending':
+                $products = $products->orderByDesc('price');
+                break;
+            default:
+                $products = $products->orderBy('id');
+        }
 
         // Hiện thị sản phẩm theo thanh tìm kiếm
         $products = $products->paginate($perPage);
@@ -95,11 +93,6 @@ class ProductRepository extends BaseRepositories implements ProductRepositoryInt
     // Lọc sản phẩm
     public function filter($products, Request $request)
     {
-        // Brands
-        $brands = $request->brand ?? [];
-        $brands_ids = array_keys($brands);
-        $products = $brands_ids != null ? $products->whereIn('brand_id', $brands_ids) : $products;
-
         // Price
         $priceMin = $request->price_min;
         $priceMax = $request->price_max;
@@ -109,19 +102,12 @@ class ProductRepository extends BaseRepositories implements ProductRepositoryInt
 
         $products = ($priceMin != null && $priceMax != null) ? $products->whereBetween('price', [$priceMin, $priceMax]) : $products;
 
-        // Color
-        // $color = $request->color;
-        // $products = $color != null ?
-        //    $products->whereHas('productDetails', function ($query) use ($color) {
-        //       return $query->where('color', $color)->where('qty', '>', 0);
-        //    }) : $products;
-
         // Size
         $size = $request->size;
         $products = $size != null ?
-         $products->whereHas('productDetails', function ($query) use ($size) {
-             return $query->where('size', $size)->where('qty', '>', 0);
-         }) : $products;
+            $products->whereHas('productDetails', function ($query) use ($size) {
+                return $query->where('size', $size)->where('qty', '>', 0);
+            }) : $products;
 
         return $products;
     }

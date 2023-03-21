@@ -11,7 +11,6 @@ class Product extends Model
     protected $table = 'products';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'brand_id',
         'product_category_id',
         'name',
         'description',
@@ -19,11 +18,6 @@ class Product extends Model
         'featured',
         'tag',
     ];
-
-    public function brand()
-    {
-        return $this->belongsTo(Brand::class, 'brand_id', 'id');
-    }
 
     public function productCategory()
     {

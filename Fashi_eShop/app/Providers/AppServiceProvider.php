@@ -4,7 +4,6 @@ namespace App\Providers;
 // Product
 use App\Service\Blog\BlogService;
 use App\Service\User\UserService;
-use App\Service\Brand\BrandService;
 use App\Service\Order\OrderService;
 // ProductComment
 use App\Service\Product\ProductService;
@@ -14,9 +13,7 @@ use App\Repositories\User\UserRepository;
 // Blog
 use App\Service\Blog\BlogServiceInterface;
 use App\Service\User\UserServiceInterface;
-use App\Repositories\Brand\BrandRepository;
 use App\Repositories\Order\OrderRepository;
-use App\Service\Brand\BrandServiceInterface;
 use App\Service\Order\OrderServiceInterface;
 use App\Repositories\Product\ProductRepository;
 use App\Service\OrderDetail\OrderDetailService;
@@ -24,7 +21,6 @@ use App\Service\Product\ProductServiceInterface;
 use App\Service\BlogCategory\BlogCategoryService;
 use App\Repositories\Blog\BlogRepositoryInterface;
 use App\Repositories\User\UserRepositoryInterface;
-use App\Repositories\Brand\BrandRepositoryInterface;
 use App\Repositories\Order\OrderRepositoryInterface;
 use App\Service\ProductComment\ProductCommentService;
 use App\Repositories\OrderDetail\OrderDetailRepository;
@@ -88,15 +84,6 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton( 
             ProductCategoryServiceInterface::class,
             ProductCategoryService::class,
-        );
-        // Brand
-        $this->app->singleton( 
-            BrandRepositoryInterface::class,
-            BrandRepository::class,
-        );
-        $this->app->singleton( 
-            BrandServiceInterface::class,
-            BrandService::class,
         );
         // Order
         $this->app->singleton( 

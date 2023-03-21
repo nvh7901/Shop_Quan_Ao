@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
-use App\Service\Brand\BrandServiceInterface;
 use App\Service\Product\ProductServiceInterface;
 use App\Service\ProductCategory\ProductCategoryServiceInterface;
 use Illuminate\Http\Request;
@@ -12,13 +11,11 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     private $productService;
-    private $brandService;
     private $productCategoryService;
 
-    public function __construct(ProductServiceInterface $productService, BrandServiceInterface $brandService, ProductCategoryServiceInterface $productCategoryService)
+    public function __construct(ProductServiceInterface $productService, ProductCategoryServiceInterface $productCategoryService)
     {
         $this->productService = $productService;
-        $this->brandService = $brandService;
         $this->productCategoryService = $productCategoryService;
     }
 
@@ -41,11 +38,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $brands = $this->brandService->all();
         $productCategories = $this->productCategoryService->all();
 
         return view('backend.product.create')
-            ->with(compact('brands'))
             ->with(compact('productCategories'));
     }
 
@@ -58,7 +53,6 @@ class ProductController extends Controller
     {
         $tags = explode(',', $request->tag);
         $params = [
-            'brand_id' => $request->brand_id,
             'product_category_id' => $request->product_category_id,
             'name' => $request->name,
             'description' => $request->description,
@@ -99,12 +93,10 @@ class ProductController extends Controller
     {
         $products = $this->productService->find($id);
 
-        $brands = $this->brandService->all();
         $productCategories = $this->productCategoryService->all();
 
         return view('backend.product.edit')
             ->with(compact('products'))
-            ->with(compact('brands'))
             ->with(compact('productCategories'));
     }
 
@@ -120,7 +112,6 @@ class ProductController extends Controller
     {
         $tags = explode(',', $request->tag);
         $params = [
-            'brand_id' => $request->brand_id,
             'product_category_id' => $request->product_category_id,
             'name' => $request->name,
             'description' => $request->description,

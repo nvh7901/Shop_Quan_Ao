@@ -9,26 +9,6 @@
        @endforeach
        </ul>
    </div>
-   {{-- Brand --}}
-   <div class="filter-widget">
-       <h4 class="fw-title">Brand</h4>
-       <div class="fw-brand-check">
-           @foreach ($brands as $brand)
-               <div class="bc-item">
-                   <label for="bc-{{ $brand->id }}">
-                       {{ $brand->name }}
-                       <input type="checkbox" id="bc-{{ $brand->id }}" 
-                       name="brand[{{ $brand->id }}]"
-                       {{ (request("brand")[$brand->id] ?? '') == 'on' ? 'checked' : '' }}
-                       onchange="this.form.submit();">
-                       <span class="checkmark"></span>
-                   </label>
-               </div>
-               
-           @endforeach
-          
-       </div>
-   </div>
    {{-- Price --}}
    <div class="filter-widget">
        <h4 class="fw-title">Price</h4>
