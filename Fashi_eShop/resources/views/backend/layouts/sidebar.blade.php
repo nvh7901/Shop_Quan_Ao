@@ -48,7 +48,7 @@
                         <li>
                             <a href="./admin/category"
                                 class="{{ request()->segment(2) == 'category' ? 'mm-active' : '' }}">
-                                <i class="metismenu-icon"></i>Product Category
+                                <i class="metismenu-icon"></i>Category
                             </a>
                         </li>
                         <li>
