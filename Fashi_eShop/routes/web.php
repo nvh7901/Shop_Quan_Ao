@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProductDetailController;
 use App\Http\Controllers\Admin\ProductImageController;
 use App\Http\Controllers\Admin\BlogCategoryController;
+use App\Http\Controllers\Front\SocialLoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,6 +76,9 @@ Route::prefix('account')->group(function () {
    // Đăng ký tài khoản
    Route::get('register', [AccountController::class, 'register']);
    Route::post('register', [AccountController::class, 'postRegister']);
+   // Đăng nhập tk mạng xã hội
+   Route::get('/google/redirect', [SocialLoginController::class, 'googleRedirect']);
+   Route::get('/google/callback', [SocialLoginController::class, 'googleCallback']);
 });
 
 // BE admin
