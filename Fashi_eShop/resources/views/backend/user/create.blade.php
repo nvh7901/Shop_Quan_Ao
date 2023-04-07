@@ -11,7 +11,7 @@
                         @include('backend.components.notification')
                         <form method="post" action="admin/user" enctype="multipart/form-data">
                             @csrf
-                            
+
                             @error('image')
                                 <div class="alert alert-danger" role="alert">
                                     {{ $message }}
@@ -26,6 +26,9 @@
                                     <input name="image" type="file" onchange="changeImg(this)"
                                         class="image form-control-file" style="display: none;" value="" placeholder="Chỉ chấp nhận các file .pdf .jpg">
                                     <input type="hidden" name="image_old" value="">
+                                    <small class="form-text text-muted">
+                                        (File định dạng: .jpg .png .jpeg)
+                                    </small>
                                 </div>
                             </div>
 
