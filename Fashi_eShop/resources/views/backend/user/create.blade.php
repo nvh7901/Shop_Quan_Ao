@@ -63,6 +63,11 @@
                                         class="form-control" value="">
                                 </div>
                             </div>
+                            @error('password')
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                             <div class="position-relative row form-group">
                                 <label for="town_city" class="col-md-3 text-md-right col-form-label">
                                     Town City
