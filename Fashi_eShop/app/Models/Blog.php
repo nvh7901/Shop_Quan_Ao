@@ -11,7 +11,6 @@ class Blog extends Model
     protected $table = 'blogs';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'blog_category_id',
         'title',
         'subtitle',
         'image',
@@ -21,10 +20,5 @@ class Blog extends Model
     public function BlogComments()
     {
         return $this->hasMany(BlogComment::class, 'blog_id', 'id');
-    }
-
-    public function blogCategory()
-    {
-        return $this->belongsTo(BlogCategory::class, 'blog_category_id', 'id');
     }
 }

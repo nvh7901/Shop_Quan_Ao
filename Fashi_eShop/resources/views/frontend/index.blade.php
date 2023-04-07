@@ -109,7 +109,7 @@
     <!-- Women Banner Section End -->
 
     <!-- Deal Of The Week Section Begin-->
-    {{-- <section class="deal-of-week set-bg spad" data-setbg="frontend/img/time-bg.jpg">
+    <section class="deal-of-week set-bg spad" data-setbg="frontend/img/time-bg.jpg">
         <div class="container">
             <div class="col-lg-6 text-center">
                 <div class="section-title">
@@ -142,7 +142,7 @@
                 <a href="#" class="primary-btn">Shop Now</a>
             </div>
         </div>
-    </section> --}}
+    </section>
     <!-- Deal Of The Week Section End -->
 
     <!-- Man Banner Section Begin -->
@@ -243,7 +243,7 @@
                                         {{ count($blog->blogComments) }}
                                     </div> --}}
                                 </div>
-                                <a href="#">
+                                <a href="./blog/blog-detail/{{ $blog->id }}">
                                     <h4>{{ $blog->title }}</h4>
                                 </a>
                                 <p>{{ $blog->subtitle }}</p>

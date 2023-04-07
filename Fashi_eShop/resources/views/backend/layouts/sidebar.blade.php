@@ -64,12 +64,6 @@
                             </a>
                         </li>
                         <li>
-                            <a href="./admin/blogcategory"
-                                class="{{ request()->segment(2) == 'blogcategory' ? 'mm-active' : '' }}">
-                                <i class="metismenu-icon"></i>Blog Category
-                            </a>
-                        </li>
-                        <li>
                             <a href="./admin/order" class="{{ request()->segment(2) == 'order' ? 'mm-active' : '' }}">
                                 <i class="metismenu-icon"></i>Order
                             </a>

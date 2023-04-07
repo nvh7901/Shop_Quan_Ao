@@ -6,19 +6,16 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\BlogRequest;
 use App\Models\Blog;
 use App\Service\Blog\BlogServiceInterface;
-use App\Service\BlogCategory\BlogCategoryServiceInterface;
 use App\Utilities\File;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
     private $blogService;
-    private $blogCategoryService;
 
-    public function __construct(BlogServiceInterface $blogService, BlogCategoryServiceInterface $blogCategoryService)
+    public function __construct(BlogServiceInterface $blogService)
     {
         $this->blogService = $blogService;
-        $this->blogCategoryService = $blogCategoryService;
     }
 
     /**
@@ -40,8 +37,6 @@ class BlogController extends Controller
      */
     public function create()
     {
-        $blogCategories = $this->blogCategoryService->all();
-
         return view('backend.blog.create')->with(compact('blogCategories'));
     }
 
@@ -55,7 +50,6 @@ class BlogController extends Controller
     public function store(BlogRequest $request)
     {
         $params = [
-            'blog_category_id' => $request->blog_category_id,
             'title' => $request->title,
             'subtitle' => $request->subtitle,
             'content' => $request->content,
@@ -66,7 +60,6 @@ class BlogController extends Controller
             // Chuyển ảnh đến folder blog
             $params['image'] = File::uploadFile($request->file('image'), 'frontend/img/blog');
         }
-        // dd($params);
         $data = $this->blogService->create($params);
 
         return redirect('admin/blog')->with('notification', 'Thêm Blog thành công !');
@@ -93,7 +86,6 @@ class BlogController extends Controller
     public function edit($id)
     {
         $blog = $this->blogService->find($id);
-        $blogCategories = $this->blogCategoryService->all();
 
         return view('backend.blog.edit')
             ->with(compact('blog'))
@@ -108,7 +100,6 @@ class BlogController extends Controller
     public function update(Request $request, Blog $blog)
     {
         $params = [
-            'blog_category_id' => $request->blog_category_id,
             'title' => $request->title,
             'subtitle' => $request->subtitle,
             'content' => $request->content,

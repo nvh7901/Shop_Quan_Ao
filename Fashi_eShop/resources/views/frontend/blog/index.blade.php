@@ -49,24 +49,24 @@
                         @foreach ($blogs as $blog)
                             <div class="col-lg-6 col-sm-6">
                                 <div class="single-latest-blog">
-                                 <img src="frontend/img/blog/{{ $blog->image }}" alt="">
-                                 <div class="latest-text">
-                                     <div class="tag-list">
-                                         <div class="tag-item">
-                                             <i class="fa fa-calendar-o"></i>
-                                             {{ date('M d, Y', strtotime($blog->created_at)) }}
-                                         </div>
-                                         {{-- <div class="tag-item">
+                                    <img src="frontend/img/blog/{{ $blog->image }}" alt="">
+                                    <div class="latest-text">
+                                        <div class="tag-list">
+                                            <div class="tag-item">
+                                                <i class="fa fa-calendar-o"></i>
+                                                {{ date('M d, Y', strtotime($blog->created_at)) }}
+                                            </div>
+                                            {{-- <div class="tag-item">
                                              <i class="fa fa-comment-o"></i>
                                              {{ count($blog->blogComments) }}
                                          </div> --}}
-                                     </div>
-                                     <a href="./blog/blog-detail/{{ $blog->id }}">
-                                         <h4>{{ $blog->title }}</h4>
-                                     </a>
-                                     <p>{{ $blog->subtitle }}</p>
-                                 </div>
-                             </div>
+                                        </div>
+                                        <a href="./blog/blog-detail/{{ $blog->id }}">
+                                            <h4>{{ $blog->title }}</h4>
+                                        </a>
+                                        <p>{{ $blog->subtitle }}</p>
+                                    </div>
+                                </div>
                             </div>
                         @endforeach
                     </div>

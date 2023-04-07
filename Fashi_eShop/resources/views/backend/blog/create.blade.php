@@ -62,25 +62,6 @@
                                     <textarea class="form-control" name="content" id="content"></textarea>
                                 </div>
                             </div>
-                            @error('blog_category_id')
-                                <div class="alert alert-danger" role="alert">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                            <div class="position-relative row form-group">
-                                <label for="product_category_id" class="col-md-3 text-md-right col-form-label">Blog
-                                    Category</label>
-                                <div class="col-md-9 col-xl-8">
-                                    <select name="blog_category_id" id="blog_category_id" class="form-control">
-                                        <option value="">-- Blog Category --</option>
-                                        @foreach ($blogCategories as $blogCategory)
-                                            <option value={{ $blogCategory->id }}>
-                                                {{ $blogCategory->name }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
                             <div class="position-relative row form-group mb-1">
                                 <div class="col-md-9 col-xl-8 offset-md-2">
                                     <a href="./admin/blog" class="border-0 btn btn-outline-danger mr-1">
