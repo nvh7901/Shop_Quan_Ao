@@ -38,7 +38,7 @@
                                 </div>
                             @enderror
                             <div class="position-relative row form-group">
-                                <label for="name" class="col-md-3 text-md-right col-form-label">Họ và tên</label>
+                                <label for="name" class="col-md-3 text-md-right col-form-label">Họ tên</label>
                                 <div class="col-md-9 col-xl-8">
                                     <input name="name" id="name" placeholder="VD: Nguyễn Văn A" type="text"
                                         class="form-control" value="">
