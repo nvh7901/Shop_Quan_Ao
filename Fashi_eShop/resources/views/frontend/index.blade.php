@@ -88,16 +88,16 @@
                 <div class="col-lg-8 offset-lg-1">
                     <div class="filter-control">
                         <ul>
-                            <li class="active item" data-tag="*" data-category="women">All</li>
-                            <li class="item" data-tag=".Fragrant" data-category="women">Fragrant</li>
-                            <li class="item" data-tag=".Concentration" data-category="women">Concentration</li>
-                            <li class="item" data-tag=".Capacity" data-category="women">Capacity</li>
-                            {{-- <li class="item" data-tag=".Accessories" data-category="women">Accessories</li> --}}
+                            <li class="active item" data-tag="*" data-category="Nữ">All</li>
+                            <li class="item" data-tag=".Fragrant" data-category="Nữ">Fragrant</li>
+                            <li class="item" data-tag=".Concentration" data-category="Nữ">Concentration</li>
+                            <li class="item" data-tag=".Capacity" data-category="Nữ">Capacity</li>
+                            {{-- <li class="item" data-tag=".Accessories" data-category="Nữ">Accessories</li> --}}
                         </ul>
                     </div>
 
-                    <div class="product-slider owl-carousel women">
-                        @foreach ($featuredProduct['women'] as $product)
+                    <div class="product-slider owl-carousel Nữ">
+                        @foreach ($featuredProduct['Nữ'] as $product)
                             @include('frontend.components.product-item')
                         @endforeach
 
@@ -152,15 +152,15 @@
                 <div class="col-lg-8">
                     <div class="filter-control">
                         <ul>
-                            <li class="active item" data-tag="*" data-category="men">All</li>
-                            <li class="item" data-tag=".Fragrant" data-category="men">Fragrant</li>
-                            <li class="item" data-tag=".Concentration" data-category="men">Concentration</li>
-                            <li class="item" data-tag=".Capacity" data-category="men">Capacity</li>
+                            <li class="active item" data-tag="*" data-category="Nam">All</li>
+                            <li class="item" data-tag=".Fragrant" data-category="Nam">Fragrant</li>
+                            <li class="item" data-tag=".Concentration" data-category="Nam">Concentration</li>
+                            <li class="item" data-tag=".Capacity" data-category="Nam">Capacity</li>
                             {{-- <li class="item" data-tag=".Accessories" data-category="men">Accessories</li> --}}
                         </ul>
                     </div>
-                    <div class="product-slider owl-carousel men">
-                        @foreach ($featuredProduct['men'] as $product)
+                    <div class="product-slider owl-carousel Nam">
+                        @foreach ($featuredProduct['Nam'] as $product)
                             @include('frontend.components.product-item')
                         @endforeach
                     </div>

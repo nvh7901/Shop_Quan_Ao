@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductDetailRequest;
 use App\Models\ProductDetail;
 use App\Service\Product\ProductServiceInterface;
 use Illuminate\Http\Request;
@@ -50,19 +51,19 @@ class ProductDetailController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $product_id)
+    public function store(ProductDetailRequest $request, $product_id)
     {
         $params = [
             'product_id' => $request->product_id,
             'size' => $request->size,
             'qty' => $request->qty,
         ];
-        // dd($params);
+
         $data = ProductDetail::create($params);
 
         $this->updateQty($product_id);
 
-        return redirect('admin/product/'.$product_id.'/detail')->with('notification', 'Thêm Product Detail thành công');
+        return redirect('admin/product/'.$product_id.'/detail')->with('notification', 'Thêm thành công !');
     }
 
     /**
@@ -97,14 +98,13 @@ class ProductDetailController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $product_id, $product_detail_id)
+    public function update(ProductDetailRequest $request, $product_id, $product_detail_id)
     {
         $data = $request->all();
 
         ProductDetail::find($product_detail_id)->update($data);
-        // $this->updateQty($product_id);
 
-        return redirect('admin/product/'.$product_id.'/detail')->with('notification', 'Sửa Product Detail thành công');
+        return redirect('admin/product/'.$product_id.'/detail')->with('notification', 'Chỉnh sửa thành công !');
     }
 
     /**
@@ -116,7 +116,7 @@ class ProductDetailController extends Controller
     {
         ProductDetail::find($product_detail_id)->delete();
 
-        return redirect('admin/product/'.$product_id.'/detail')->with('notification', 'Xóa Product Detail thành công');
+        return redirect('admin/product/'.$product_id.'/detail')->with('notification', 'Xóa thành công !');
     }
 
     // Update số lượng sản phẩm

@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title', 'Thêm Product Detail')
+@section('title', 'Thêm Mới Chi Tiết SP')
 @section('content')
     <!-- Main -->
     <div class="app-main__inner">
@@ -11,26 +11,34 @@
                             @csrf
                             <input type="hidden" name="product_id" value="{{ $products->id }}">
                             <div class="position-relative row form-group">
-                                <label class="col-md-3 text-md-right col-form-label">Product Name</label>
+                                <label class="col-md-3 text-md-right col-form-label">Tên sản phẩm</label>
                                 <div class="col-md-9 col-xl-8">
                                     <input disabled placeholder="Product Name" type="text" class="form-control"
                                         value="{{ $products->name }}">
                                 </div>
                             </div>
-
+                            @error('size')
+                                <div class="alert alert-warning" role="alert">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                             <div class="position-relative row form-group">
                                 <label for="size" class="col-md-3 text-md-right col-form-label">Size</label>
                                 <div class="col-md-9 col-xl-8">
-                                    <input required name="size" id="size" placeholder="Size" type="text"
-                                        class="form-control" value="">
+                                    <input name="size" id="size" placeholder="VD: XL, L, M" type="text"
+                                        class="form-control">
                                 </div>
                             </div>
-
+                            @error('qty')
+                                <div class="alert alert-warning" role="alert">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                             <div class="position-relative row form-group">
-                                <label for="qty" class="col-md-3 text-md-right col-form-label">Qty</label>
+                                <label for="qty" class="col-md-3 text-md-right col-form-label">Số lượng</label>
                                 <div class="col-md-9 col-xl-8">
-                                    <input required name="qty" id="qty" placeholder="Qty" type="text"
-                                        class="form-control" value="">
+                                    <input name="qty" id="qty" placeholder="Số lượng sản phẩm" type="number"
+                                        class="form-control">
                                 </div>
                             </div>
 
@@ -40,14 +48,14 @@
                                         <span class="btn-icon-wrapper pr-1 opacity-8">
                                             <i class="fa fa-times fa-w-20"></i>
                                         </span>
-                                        <span>Cancel</span>
+                                        <span>Hủy</span>
                                     </a>
 
                                     <button type="submit" class="btn-shadow btn-hover-shine btn btn-primary">
                                         <span class="btn-icon-wrapper pr-2 opacity-8">
                                             <i class="fa fa-download fa-w-20"></i>
                                         </span>
-                                        <span>Save</span>
+                                        <span>Thêm Mới</span>
                                     </button>
                                 </div>
                             </div>

@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title', 'Sửa Product Detail')
+@section('title', 'Chỉnh Sửa Chi Tiết Sản Phẩm')
 @section('content')
     <!-- Main -->
     <div class="app-main__inner">
@@ -13,9 +13,9 @@
                             @csrf
                             @method('PUT')
                             <div class="position-relative row form-group">
-                                <label class="col-md-3 text-md-right col-form-label">Product Name</label>
+                                <label class="col-md-3 text-md-right col-form-label">Tên sản phẩm</label>
                                 <div class="col-md-9 col-xl-8">
-                                    <input disabled placeholder="Product Name" type="text" class="form-control"
+                                    <input disabled type="text" class="form-control"
                                         value="{{ $products->name }}">
                                 </div>
                             </div>
@@ -23,15 +23,15 @@
                             <div class="position-relative row form-group">
                                 <label for="size" class="col-md-3 text-md-right col-form-label">Size</label>
                                 <div class="col-md-9 col-xl-8">
-                                    <input required name="size" id="size" placeholder="Size" type="text"
+                                    <input required name="size" id="size" placeholder="VD: XL, L, M" type="text"
                                         class="form-control" value="{{ $productDetails->size }}">
                                 </div>
                             </div>
 
                             <div class="position-relative row form-group">
-                                <label for="qty" class="col-md-3 text-md-right col-form-label">Qty</label>
+                                <label for="qty" class="col-md-3 text-md-right col-form-label">Số lượng</label>
                                 <div class="col-md-9 col-xl-8">
-                                    <input required name="qty" id="qty" placeholder="Qty" type="text"
+                                    <input required name="qty" id="qty" placeholder="Số lượng sản phẩm" type="text"
                                         class="form-control" value="{{ $productDetails->qty }}">
                                 </div>
                             </div>
@@ -43,14 +43,14 @@
                                         <span class="btn-icon-wrapper pr-1 opacity-8">
                                             <i class="fa fa-times fa-w-20"></i>
                                         </span>
-                                        <span>Cancel</span>
+                                        <span>Hủy</span>
                                     </a>
 
                                     <button type="submit" class="btn-shadow btn-hover-shine btn btn-primary">
                                         <span class="btn-icon-wrapper pr-2 opacity-8">
                                             <i class="fa fa-download fa-w-20"></i>
                                         </span>
-                                        <span>Save</span>
+                                        <span>Lưu</span>
                                     </button>
                                 </div>
                             </div>
