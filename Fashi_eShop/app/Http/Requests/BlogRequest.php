@@ -24,19 +24,18 @@ class BlogRequest extends FormRequest
     public function rules()
     {
         return [
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|dimensions:max_width=650, max_height=650',
-            'title' => 'required|max:200',
-            'subtitle' => 'required|max:255',
+            'title' => 'required',
+            'subtitle' => 'required',
             'content' => 'required',
-            'blog_category_id' => 'required|not_in:-1',
         ];
     }
 
     public function messages()
     {
         return [
-            'image.required' => 'The image field is required',
-            'blog_category_id.required' => 'The selected blog category is invalid',
+            'image.required' => 'Vui lòng nhập tên bài viết',
+            'subtitle.required' => 'Vui lòng nhập tiêu đề bài viết',
+            'content.required' => 'Vui lòng nhập mô tả bài viết', 
         ];
     }
 }

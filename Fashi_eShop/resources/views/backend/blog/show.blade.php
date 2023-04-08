@@ -9,7 +9,7 @@
                     <span class="btn-icon-wrapper pr-2 opacity-8">
                         <i class="fa fa-edit fa-w-20"></i>
                     </span>
-                    <span>Edit</span>
+                    <span>Chỉnh Sửa</span>
                 </a>
             </li>
 
@@ -20,7 +20,7 @@
                         <span class="btn-icon-wrapper pr-2 opacity-8">
                             <i class="fa fa-trash fa-w-20"></i>
                         </span>
-                        <span>Delete</span>
+                        <span>Xóa</span>
                     </button>
                 </form>
             </li>
@@ -31,7 +31,7 @@
                 <div class="main-card mb-3 card">
                     <div class="card-body display_data">
                         <div class="position-relative row form-group">
-                            <label for="image" class="col-md-3 text-md-right col-form-label">Image</label>
+                            <label for="image" class="col-md-3 text-md-right col-form-label">Hình ảnh</label>
                             <div class="col-md-9 col-xl-8">
 
                                 <img style="height: 200px;" class="rounded-circle" data-toggle="tooltip" title="Avatar"
@@ -43,7 +43,7 @@
 
                         <div class="position-relative row form-group">
                             <label for="name" class="col-md-3 text-md-right col-form-label" style="padding-top: 0px;">
-                                Title
+                                Tên bài viết
                             </label>
                             <div class="col-md-9 col-xl-8">
                                 {{ $blog->title }}
@@ -51,8 +51,9 @@
                         </div>
 
                         <div class="position-relative row form-group">
-                            <label for="email" class="col-md-3 text-md-right col-form-label"
-                                style="padding-top: 0px;">Subtitle</label>
+                            <label for="email" class="col-md-3 text-md-right col-form-label" style="padding-top: 0px;">
+                                Tiêu đề bài viết
+                            </label>
                             <div class="col-md-9 col-xl-8">
                                 {{ $blog->subtitle }}
                             </div>
@@ -60,9 +61,9 @@
 
 
                         <div class="position-relative row form-group">
-                            <label for="street_address" class="col-md-3 text-md-right col-form-label"
-                                style="padding-top: 0px;">
-                                Content</label>
+                            <label for="street_address" class="col-md-3 text-md-right col-form-label" style="padding-top: 0px;">
+                                Mô tả
+                            </label>
                             <div class="col-md-9 col-xl-8">
                                 {!! $blog->content !!}
                             </div>

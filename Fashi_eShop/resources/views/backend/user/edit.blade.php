@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title', 'Sửa User')
+@section('title', 'Chỉnh Sửa User')
 @section('content')
     <!-- Main -->
     <div class="app-main__inner">

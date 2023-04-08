@@ -37,7 +37,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('backend.blog.create')->with(compact('blogCategories'));
+        return view('backend.blog.create');
     }
 
     /**
@@ -62,7 +62,7 @@ class BlogController extends Controller
         }
         $data = $this->blogService->create($params);
 
-        return redirect('admin/blog')->with('notification', 'Thêm Blog thành công !');
+        return redirect('admin/blog')->with('notification', 'Thêm bài viết thành công !');
     }
 
     /**
@@ -87,9 +87,7 @@ class BlogController extends Controller
     {
         $blog = $this->blogService->find($id);
 
-        return view('backend.blog.edit')
-            ->with(compact('blog'))
-            ->with(compact('blogCategories'));
+        return view('backend.blog.edit')->with(compact('blog'));
     }
 
     /**
@@ -97,7 +95,7 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Blog $blog)
+    public function update(BlogRequest $request, Blog $blog)
     {
         $params = [
             'title' => $request->title,
@@ -120,7 +118,7 @@ class BlogController extends Controller
         // Thêm mới vào CSDL
         $data = $this->blogService->update($params, $blog->id);
 
-        return redirect('admin/blog')->with('notification', 'Sửa Blog thành công !');
+        return redirect('admin/blog')->with('notification', 'Chỉnh sửa bài viết thành công !');
     }
 
     /**
@@ -138,6 +136,6 @@ class BlogController extends Controller
             unlink('frontend/img/blog/'.$file_name);
         }
 
-        return redirect('admin/blog')->with('notification', 'Xóa Blog thành công !');
+        return redirect('admin/blog')->with('notification', 'Xóa bài viết thành công !');
     }
 }
