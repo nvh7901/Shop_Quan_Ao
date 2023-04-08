@@ -24,11 +24,10 @@ class ProductRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'brand_id' => 'required|not_in:-1',
-            'product_category_id' => 'required|not_in:-1',
-            'name' => 'required|regex:/^[\pL\s]+$/u|max:50|unique:products',
-            'price' => 'required|numeric|max:50',
-            'tag' => 'required|regex:/^[\pL\s]+$/u|max:50',
+            'product_category_id' => 'required',
+            'name' => 'required',
+            'price' => 'required|numeric',
+            'tag' => 'required',
             'featured' => 'required',
             'description' => 'required',
         ];
@@ -37,9 +36,13 @@ class ProductRequest extends FormRequest
     public function messages()
     {
         return [
-            // 'brand_id.not_in' => 'The selected brand is invalid',
-            'product_category_id.not_in' => 'The selected category is invalid',
-            'price.max' => 'The price is not valid'
+            'product_category_id.required' => 'Vui lòng chọn loại sản phẩm',
+            'name.required' => 'Vui lòng nhập tên sản phẩm',
+            'price.required' => 'Vui lòng nhập giá sản phẩm',
+            'price.numeric' => 'Vui lòng nhập lại giá sản phẩm',
+            'tag.required' => 'Vui lòng nhập tag sản phẩm',
+            'description.required' => 'Vui lòng nhập mô tả sản phẩm',
+            'featured.required' => 'Vui lòng chọn sản phẩm nổi bật',
         ];
     }
 }

@@ -49,7 +49,7 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
         $tags = explode(',', $request->tag);
         $params = [
@@ -64,7 +64,7 @@ class ProductController extends Controller
         $data = $this->productService->create($params);
 
         if ($data) {
-            return redirect('admin/product')->with('notification', 'Thêm Product thành công !');
+            return redirect('admin/product')->with('notification', 'Thêm mới mới thành công !');
         }
     }
 
@@ -108,7 +108,7 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductRequest $request, $id)
     {
         $tags = explode(',', $request->tag);
         $params = [
@@ -122,7 +122,7 @@ class ProductController extends Controller
 
         $data = $this->productService->update($params, $id);
         if ($data) {
-            return redirect('admin/product')->with('notification', 'Sửa Product thành công !');
+            return redirect('admin/product')->with('notification', 'Chỉnh sửa sản phẩm thành công !');
         }
     }
 
@@ -137,6 +137,6 @@ class ProductController extends Controller
     {
         $data = $this->productService->delete($id);
 
-        return redirect('admin/product')->with('notification', 'Xóa Product thành công !');
+        return redirect('admin/product')->with('notification', 'Xóa sản phẩm thành công !');
     }
 }

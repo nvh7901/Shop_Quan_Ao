@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title', 'Thêm Category')
+@section('title', 'Thêm Mới Loại Sản Phẩm')
 @section('content')
 
     <!-- Main -->

@@ -64,7 +64,7 @@ class UserController extends Controller
         }
         $data = $this->userService->create($params);
 
-        return redirect('admin/user')->with('notification', 'Thêm User thành công !');
+        return redirect('admin/user')->with('notification', 'Thêm mới User thành công !');
     }
 
     /**
@@ -122,7 +122,7 @@ class UserController extends Controller
         // Thêm mới vào CSDL
         $data = $this->userService->update($params, $user->id);
 
-        return redirect('admin/user')->with('notification', 'Sửa User thành công !');
+        return redirect('admin/user')->with('notification', 'Chỉnh sửa User thành công !');
     }
 
     /**

@@ -53,7 +53,7 @@ class ProductCategoryController extends Controller
 
         $data = $this->productCategoryService->create($params);
 
-        return redirect('admin/category')->with('notification', 'Thêm Category thành công !');
+        return redirect('admin/category')->with('notification', 'Thêm mới loại sản phẩm thành công !');
     }
 
     /**
@@ -97,7 +97,7 @@ class ProductCategoryController extends Controller
 
         $data = $this->productCategoryService->update($params, $id);
 
-        return redirect('admin/category')->with('notification', 'Edit Category Successfully !');
+        return redirect('admin/category')->with('notification', 'Chỉnh sửa loại sản phẩm thành công !');
     }
 
     /**
@@ -111,6 +111,6 @@ class ProductCategoryController extends Controller
     {
         $this->productCategoryService->delete($id);
 
-        return redirect('admin/category')->with('notification', 'Delete Category Successfully !');
+        return redirect('admin/category')->with('notification', 'Xóa loại sản phẩm thành công !');
     }
 }

@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title', 'Chi tiết Product')
+@section('title', 'Chi tiết Sản Phẩm')
 @section('content')
     <!-- Main -->
     <div class="app-main__inner">
@@ -12,7 +12,7 @@
 
                         <div class="position-relative row form-group">
                             <label for="" class="col-md-3 text-md-right col-form-label"
-                                style="padding-top: 0px;">Images</label>
+                                style="padding-top: 0px;">Hình ảnh SP</label>
                             <div class="col-md-9 col-xl-8">
                                 <ul class="text-nowrap overflow-auto" id="images">
                                     @foreach ($products->productImages as $productImage)
@@ -27,23 +27,23 @@
 
                         <div class="position-relative row form-group">
                             <label for="brand_id" class="col-md-3 text-md-right col-form-label"
-                                style="padding-top: 0px;">Product Images</label>
+                                style="padding-top: 0px;">Hình ảnh</label>
                             <div class="col-md-9 col-xl-8">
-                                <p><a href="./admin/product/{{ $products->id }}/image">Manage images</a></p>
+                                <p><a href="./admin/product/{{ $products->id }}/image"> Quản lý ảnh sản phẩm</a></p>
                             </div>
                         </div>
 
                         <div class="position-relative row form-group">
                             <label for="brand_id" class="col-md-3 text-md-right col-form-label"
-                                style="padding-top: 0px;">Product Details</label>
+                                style="padding-top: 0px;">Quản lý</label>
                             <div class="col-md-9 col-xl-8">
-                                <p><a href="./admin/product/{{ $products->id }}/detail">Manage details</a></p>
+                                <p><a href="./admin/product/{{ $products->id }}/detail">Chi tiết sản phẩm</a></p>
                             </div>
                         </div>
 
                         <div class="position-relative row form-group">
                             <label for="product_category_id" class="col-md-3 text-md-right col-form-label"
-                                style="padding-top: 0px;">Product Category</label>
+                                style="padding-top: 0px;">Loại sản phẩm</label>
                             <div class="col-md-9 col-xl-8">
                                 <p>{{ $products->productCategory->name }}</p>
                             </div>
@@ -51,7 +51,7 @@
 
                         <div class="position-relative row form-group">
                             <label for="name" class="col-md-3 text-md-right col-form-label"
-                                style="padding-top: 0px;">Name</label>
+                                style="padding-top: 0px;">Tên sản phẩm</label>
                             <div class="col-md-9 col-xl-8">
                                 {{ $products->name }}
                             </div>
@@ -59,7 +59,7 @@
 
                         <div class="position-relative row form-group">
                             <label for="price" class="col-md-3 text-md-right col-form-label"
-                                style="padding-top: 0px;">Price</label>
+                                style="padding-top: 0px;">Giá sản phẩm</label>
                             <div class="col-md-9 col-xl-8">
                                 <p>${{ $products->price }}</p>
                             </div>
@@ -67,7 +67,7 @@
 
                         <div class="position-relative row form-group">
                             <label for="tag" class="col-md-3 text-md-right col-form-label"
-                                style="padding-top: 0px;">Tag</label>
+                                style="padding-top: 0px;">Tag sản phẩm</label>
                             <div class="col-md-9 col-xl-8">
                                 <p>
                                     @foreach (json_decode($products->tag, true) ?? [] as $tag)
@@ -79,15 +79,15 @@
 
                         <div class="position-relative row form-group">
                             <label for="featured" class="col-md-3 text-md-right col-form-label"
-                                style="padding-top: 0px;">Featured</label>
+                                style="padding-top: 0px;">Sản phẩm nổi bật</label>
                             <div class="col-md-9 col-xl-8">
                                 @if ($products->featured == 1)
                                     <div class="badge badge-success mt-2">
-                                        {{ $products->featured ? 'Yes' : 'No' }}
+                                        {{ $products->featured ? 'Có' : 'Không' }}
                                     </div>
                                 @else
                                     <div class="badge badge-danger mt-2">
-                                        {{ $products->featured ? '' : 'No' }}
+                                        {{ $products->featured ? '' : 'Không' }}
                                     </div>
                                 @endif
                             </div>
@@ -95,7 +95,7 @@
 
                         <div class="position-relative row form-group">
                             <label for="description" class="col-md-3 text-md-right col-form-label"
-                                style="padding-top: 0px;">Description</label>
+                                style="padding-top: 0px;">Mô tả</label>
                             <div class="col-md-9 col-xl-8">
                                 <p>{!! $products->description !!}</p>
                             </div>

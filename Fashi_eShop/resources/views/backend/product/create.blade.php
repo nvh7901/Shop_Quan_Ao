@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title', 'Thêm Product')
+@section('title', 'Thêm Sản Phẩm')
 @section('content')
     <!-- Main -->
     <div class="app-main__inner">
@@ -10,12 +10,18 @@
                         <form method="post" action="admin/product" enctype="multipart/form-data">
                             @csrf
 
+                            @error('product_category_id')
+                                <div class="alert alert-warning" role="alert">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                             <div class="position-relative row form-group">
-                                <label for="product_category_id"
-                                    class="col-md-3 text-md-right col-form-label">Category</label>
+                                <label for="product_category_id" class="col-md-3 text-md-right col-form-label">
+                                    Loại sản phẩm
+                                </label>
                                 <div class="col-md-9 col-xl-8">
                                     <select name="product_category_id" id="product_category_id" class="form-control">
-                                        <option value="-1">-- Category --</option>
+                                        <option value="-1">-- Chọn loại sản phẩm --</option>
                                         @foreach ($productCategories as $productCategory)
                                             <option value={{ $productCategory->id }}>
                                                 {{ $productCategory->name }}
@@ -25,55 +31,76 @@
                                 </div>
                             </div>
 
+                            @error('name')
+                                <div class="alert alert-warning" role="alert">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                             <div class="position-relative row form-group">
-                                <label for="name" class="col-md-3 text-md-right col-form-label">Name</label>
+                                <label for="name" class="col-md-3 text-md-right col-form-label">Tên SP</label>
                                 <div class="col-md-9 col-xl-8">
-                                    <input name="name" id="name" placeholder="Name" type="text"
+                                    <input name="name" id="name" placeholder="Tên sản phẩm" type="text"
                                         class="form-control" value="">
                                 </div>
                             </div>
 
+                            @error('price')
+                                <div class="alert alert-warning" role="alert">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                             <div class="position-relative row form-group">
-                                <label for="price" class="col-md-3 text-md-right col-form-label">Price</label>
+                                <label for="price" class="col-md-3 text-md-right col-form-label">Giá SP</label>
                                 <div class="col-md-9 col-xl-8">
-                                    <input name="price" id="price" placeholder="Price" type="text"
+                                    <input name="price" id="price" placeholder="VD: 35$" type="text"
                                         class="form-control" value="">
                                 </div>
                             </div>
+
+                            @error('tag')
+                                <div class="alert alert-warning" role="alert">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                             <div class="position-relative row form-group">
                                 <label for="tag " class="col-md-3 text-md-right col-form-label">Tag</label>
                                 <div class="col-md-9 col-xl-8">
-                                    <input type="text" name="tag" class="form-control" data-role="tagsinput">
+                                    <input type="text" name="tag" class="form-control" data-role="tagsinput"
+                                        placeholder="Tag sản phẩm">
                                 </div>
                             </div>
-                            {{-- <div class="position-relative row form-group">
-                                <label for="tag" class="col-md-3 text-md-right col-form-label">Tag</label>
-                                <div class="col-md-9 col-xl-8">
-                                    <input type="text" class="form-control" id="tag" name = "tag" data-role="tagsinput">
-                                </div>
-                            </div> --}}
 
+                            @error('featured')
+                                <div class="alert alert-warning" role="alert">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                             <div class="position-relative row form-group">
-                                <label for="featured" class="col-md-3 text-md-right col-form-label">Featured</label>
+                                <label for="featured" class="col-md-3 text-md-right col-form-label">SP Nổi bật</label>
                                 <div class="col-md-9 col-xl-8">
                                     <div class="position-relative form-check pt-sm-2">
                                         <input name="featured" id="featured" type="checkbox" value="1"
                                             class="form-check-input">
-                                        <label for="featured" class="form-check-label">Yes</label>
+                                        <label for="featured" class="form-check-label">Có</label>
 
                                     </div>
                                     <div class="position-relative form-check pt-sm-2">
                                         <input name="featured" id="featured" type="checkbox" value="0"
                                             class="form-check-input">
-                                        <label for="featured" class="form-check-label">No</label>
+                                        <label for="featured" class="form-check-label">Không</label>
                                     </div>
                                 </div>
                             </div>
 
+                            @error('description')
+                                <div class="alert alert-warning" role="alert">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                             <div class="position-relative row form-group">
-                                <label for="description" class="col-md-3 text-md-right col-form-label">Description</label>
+                                <label for="description" class="col-md-3 text-md-right col-form-label">Mô tả SP</label>
                                 <div class="col-md-9 col-xl-8">
-                                    <textarea class="form-control" name="description" id="description" placeholder="Description"></textarea>
+                                    <textarea class="form-control" name="description" id="description"></textarea>
                                 </div>
                             </div>
 
@@ -83,14 +110,14 @@
                                         <span class="btn-icon-wrapper pr-1 opacity-8">
                                             <i class="fa fa-times fa-w-20"></i>
                                         </span>
-                                        <span>Cancel</span>
+                                        <span>Hủy</span>
                                     </a>
 
                                     <button type="submit" class="btn-shadow btn-hover-shine btn btn-primary">
                                         <span class="btn-icon-wrapper pr-2 opacity-8">
                                             <i class="fa fa-download fa-w-20"></i>
                                         </span>
-                                        <span>Save</span>
+                                        <span>Thêm Mới</span>
                                     </button>
                                 </div>
                             </div>

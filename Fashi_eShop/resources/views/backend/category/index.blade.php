@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title', 'Category')
+@section('title', 'Quản Lý Loại Sản Phẩm')
 @section('content')
     <!-- Main -->
     <div class="app-main__inner">
