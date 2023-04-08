@@ -36,7 +36,7 @@
 
                 <li class="mm-active">
                     <a href="#">
-                        <i class="metismenu-icon pe-7s-plugin"></i>Applications
+                        <i class="metismenu-icon pe-7s-plugin"></i>Quản Lý
                         <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                     </a>
                     <ul>
@@ -48,13 +48,13 @@
                         <li>
                             <a href="./admin/category"
                                 class="{{ request()->segment(2) == 'category' ? 'mm-active' : '' }}">
-                                <i class="metismenu-icon"></i>Category
+                                <i class="metismenu-icon"></i>Loại Sản Phẩm
                             </a>
                         </li>
                         <li>
                             <a href="./admin/product"
                                 class="{{ request()->segment(2) == 'product' ? 'mm-active' : '' }}">
-                                <i class="metismenu-icon"></i>Product
+                                <i class="metismenu-icon"></i>Sản Phẩm
                             </a>
                         </li>
                         <li>
@@ -65,7 +65,7 @@
                         </li>
                         <li>
                             <a href="./admin/order" class="{{ request()->segment(2) == 'order' ? 'mm-active' : '' }}">
-                                <i class="metismenu-icon"></i>Order
+                                <i class="metismenu-icon"></i>Đơn Hàng
                             </a>
                         </li>
                     </ul>

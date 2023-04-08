@@ -24,17 +24,14 @@ class ProductCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            // regex:/^[\pL\s]+$/u cho phép nhập từ a-z A-Z, nhập khoảng trắng, không cho nhập các ký tự khác
-            'name' => 'required|regex:/^[\pL\s]+$/u|min:3|max:50|unique:product_categories',
+            'name' => 'required|max:100',
         ];
     }
 
-    // public function messages()
-    // {
-    //     return [
-    //         'required' => ' Không được để trống',
-    //         'min' => 'Không được nhỏ hơn 5',
-    //         'max' => 'Không được lớn hơn 255',
-    //     ];
-    // }
+    public function messages()
+    {
+        return [
+            'name.required' => 'Vui lòng nhập tên loại sản phẩm',
+        ];
+    }
 }

@@ -10,7 +10,7 @@
                         <span class="btn-icon-wrapper pr-2 opacity-7">
                             <i class="fa fa-plus fa-w-20"></i>
                         </span>
-                        Create
+                        Thêm Mới
                     </a>
                 </div>
             </div>
@@ -25,23 +25,16 @@
 
                         <form>
                             <div class="input-group">
-                                <input type="search" name="search" id="search" placeholder="Search everything"
+                                <input type="search" name="search" id="search" placeholder="Tìm kiếm"
                                     class="form-control" value="{{ request('search') }}">
                                 <span class="input-group-append">
                                     <button type="submit" class="btn btn-primary">
                                         <i class="fa fa-search"></i>&nbsp;
-                                        Search
+                                        Tìm kiếm
                                     </button>
                                 </span>
                             </div>
                         </form>
-
-                        <div class="btn-actions-pane-right">
-                            <div role="group" class="btn-group-sm btn-group">
-                                <button class="btn btn-focus">This week</button>
-                                <button class="active btn btn-focus">Anytime</button>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="table-responsive">
@@ -49,8 +42,8 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">ID</th>
-                                    <th>Name</th>
-                                    <th class="text-center">Actions</th>
+                                    <th>Tên loại sản phẩm</th>
+                                    <th class="text-center">Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -68,8 +61,7 @@
                                         </td>
                                         <td class="text-center">
                                             <a href="./admin/category/{{ $productCategory->id }}/edit" data-toggle="tooltip"
-                                                title="Edit" data-placement="bottom"
-                                                class="btn btn-outline-warning border-0 btn-sm">
+                                                data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
                                                 <span class="btn-icon-wrapper opacity-8">
                                                     <i class="fa fa-edit fa-w-20"></i>
                                                 </span>
@@ -79,9 +71,8 @@
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-hover-shine btn-outline-danger border-0 btn-sm"
-                                                    type="submit" data-toggle="tooltip" title="Delete"
-                                                    data-placement="bottom"
-                                                    onclick="return confirm('Do you want to delete this category ?')">
+                                                    type="submit" data-toggle="tooltip" data-placement="bottom"
+                                                    onclick="return confirm('Bạn có muốn xóa loại sản phẩm này ?')">
                                                     <span class="btn-icon-wrapper opacity-8">
                                                         <i class="fa fa-trash fa-w-20"></i>
                                                     </span>
@@ -90,8 +81,6 @@
                                         </td>
                                     </tr>
                                 @endforeach
-
-
                             </tbody>
                         </table>
                     </div>

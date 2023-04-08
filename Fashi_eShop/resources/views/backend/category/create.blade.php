@@ -18,9 +18,9 @@
                             @enderror
                             <div class="position-relative row form-group">
 
-                                <label for="name" class="col-md-3 text-md-right col-form-label">Name</label>
+                                <label for="name" class="col-md-3 text-md-right col-form-label">Tên</label>
                                 <div class="col-md-9 col-xl-8">
-                                    <input name="name" id="name" placeholder="Name" type="text"
+                                    <input name="name" id="name" placeholder="VD: Quần áo Nam" type="text"
                                         class="form-control" value="">
                                 </div>
                             </div>
@@ -30,14 +30,14 @@
                                         <span class="btn-icon-wrapper pr-1 opacity-8">
                                             <i class="fa fa-times fa-w-20"></i>
                                         </span>
-                                        <span>Cancel</span>
+                                        <span>Hủy</span>
                                     </a>
 
                                     <button type="submit" class="btn-shadow btn-hover-shine btn btn-primary">
                                         <span class="btn-icon-wrapper pr-2 opacity-8">
                                             <i class="fa fa-download fa-w-20"></i>
                                         </span>
-                                        <span>Save</span>
+                                        <span>Thêm Mới</span>
                                     </button>
                                 </div>
                             </div>
