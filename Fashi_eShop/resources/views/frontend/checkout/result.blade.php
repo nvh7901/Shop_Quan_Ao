@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', 'Result')
+@section('title', 'Kết Qủa Thanh Toán')
 @section('content')
     <section class="checkout-section spad">
         <div class="container">

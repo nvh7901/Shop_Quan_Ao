@@ -43,14 +43,14 @@
     <!-- Hero Section End -->
 
     <!-- Banner Section Begin -->
-    {{-- <div class="banner-section spad">
+    <div class="banner-section spad">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-4">
                     <div class="single-banner">
                         <img src="frontend/img/banner-1.jpg" alt="">
                         <div class="inner-text">
-                            <h4>Men’s</h4>
+                            <h4>Nam</h4>
                         </div>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                     <div class="single-banner">
                         <img src="frontend/img/banner-2.jpg" alt="">
                         <div class="inner-text">
-                            <h4>Women’s</h4>
+                            <h4>Nữ</h4>
                         </div>
                     </div>
                 </div>
@@ -66,13 +66,13 @@
                     <div class="single-banner">
                         <img src="frontend/img/banner-3.jpg" alt="">
                         <div class="inner-text">
-                            <h4>Kid’s</h4>
+                            <h4>Trẻ Em</h4>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
     <!-- Banner Section End -->
 
     <!-- Women Banner Section Begin -->
@@ -81,18 +81,18 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="product-large set-bg" data-setbg="frontend/img/products/women-large.jpg">
-                        <h2>Women’s</h2>
-                        <a href="#">Discover More</a>
+                        <h2>Nữ</h2>
+                        <a href="./shop">Khám Phá Thêm</a>
                     </div>
                 </div>
                 <div class="col-lg-8 offset-lg-1">
                     <div class="filter-control">
                         <ul>
-                            <li class="active item" data-tag="*" data-category="Nữ">All</li>
-                            <li class="item" data-tag=".Fragrant" data-category="Nữ">Fragrant</li>
-                            <li class="item" data-tag=".Concentration" data-category="Nữ">Concentration</li>
-                            <li class="item" data-tag=".Capacity" data-category="Nữ">Capacity</li>
-                            {{-- <li class="item" data-tag=".Accessories" data-category="Nữ">Accessories</li> --}}
+                            <li class="active item" data-tag="*" data-category="*">Tất Cả</li>
+                            <li class="item" data-tag=".Fragrant" data-category="Nữ">Quần Áo</li>
+                            <li class="item" data-tag=".Concentration" data-category="Nữ">Túi Xách</li>
+                            <li class="item" data-tag=".Capacity" data-category="Nữ">Giày</li>
+                            <li class="item" data-tag=".Accessories" data-category="Nữ">Phụ Kiện</li>
                         </ul>
                     </div>
 
@@ -107,44 +107,7 @@
         </div>
     </section>
     <!-- Women Banner Section End -->
-
-    <!-- Deal Of The Week Section Begin-->
-    <section class="deal-of-week set-bg spad" data-setbg="frontend/img/time-bg.jpg">
-        <div class="container">
-            <div class="col-lg-6 text-center">
-                <div class="section-title">
-                    <h2>Deal Of The Week</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed<br /> do ipsum dolor sit amet,
-                        consectetur adipisicing elit </p>
-                    <div class="product-price">
-                        $35.00
-                        <span>/ HanBag</span>
-                    </div>
-                </div>
-                <div class="countdown-timer" id="countdown">
-                    <div class="cd-item">
-                        <span>56</span>
-                        <p>Days</p>
-                    </div>
-                    <div class="cd-item">
-                        <span>12</span>
-                        <p>Hrs</p>
-                    </div>
-                    <div class="cd-item">
-                        <span>40</span>
-                        <p>Mins</p>
-                    </div>
-                    <div class="cd-item">
-                        <span>52</span>
-                        <p>Secs</p>
-                    </div>
-                </div>
-                <a href="#" class="primary-btn">Shop Now</a>
-            </div>
-        </div>
-    </section>
-    <!-- Deal Of The Week Section End -->
-
+    
     <!-- Man Banner Section Begin -->
     <section class="man-banner spad">
         <div class="container-fluid">
@@ -152,11 +115,11 @@
                 <div class="col-lg-8">
                     <div class="filter-control">
                         <ul>
-                            <li class="active item" data-tag="*" data-category="Nam">All</li>
-                            <li class="item" data-tag=".Fragrant" data-category="Nam">Fragrant</li>
-                            <li class="item" data-tag=".Concentration" data-category="Nam">Concentration</li>
-                            <li class="item" data-tag=".Capacity" data-category="Nam">Capacity</li>
-                            {{-- <li class="item" data-tag=".Accessories" data-category="men">Accessories</li> --}}
+                            <li class="active item" data-tag="*" data-category="*">Tất Cả</li>
+                            <li class="item" data-tag=".Fragrant" data-category="Nam">Quần ÁO</li>
+                            <li class="item" data-tag=".Concentration" data-category="Nam">Túi Xách</li>
+                            <li class="item" data-tag=".Capacity" data-category="Nam">Giày</li>
+                            <li class="item" data-tag=".Accessories" data-category="men">Phụ Kiện</li>
                         </ul>
                     </div>
                     <div class="product-slider owl-carousel Nam">
@@ -167,8 +130,8 @@
                 </div>
                 <div class="col-lg-3 offset-lg-1">
                     <div class="product-large set-bg m-large" data-setbg="frontend/img/products/man-large.jpg">
-                        <h2>Men’s</h2>
-                        <a href="#">Discover More</a>
+                        <h2>Nam</h2>
+                        <a href="./shop">Khám Phá Thêm</a>
                     </div>
                 </div>
             </div>
@@ -223,7 +186,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>From The Blog</h2>
+                        <h2>Các Bài Viết Nổi Bật</h2>
                     </div>
                 </div>
             </div>

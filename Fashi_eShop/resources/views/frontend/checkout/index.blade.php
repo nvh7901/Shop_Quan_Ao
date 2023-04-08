@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', 'Check Out')
+@section('title', 'Thanh Toán')
 @section('content')
     <!-- Breadcrumb Section Begin -->
     <div class="breacrumb-section">
@@ -7,9 +7,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text product-more">
-                        <a href="./"><i class="fa fa-home"></i> Home</a>
-                        <a href="./shop">Shop</a>
-                        <span>Check Out</span>
+                        <a href="./"><i class="fa fa-home"></i> Trang Chủ</a>
+                        <a href="./cart">Giỏ Hàng</a>
+                        <span>Thanh Toán</span>
                     </div>
                 </div>
             </div>
@@ -25,14 +25,11 @@
                 <div class="row">
                     @if (Cart::count() > 0)
                         <div class="col-lg-6">
-                            <div class="checkout-content">
-                                <a href="#" class="content-btn">Click Here To Login</a>
-                            </div>
-                            <h4>Biiling Details</h4>
+                            <h4>Thông Tin Khách Hàng</h4>
                             <div class="row">
                                 <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id ?? '' }}">
                                 <div class="col-lg-6">
-                                    <label for="fir">Name<span>*</span></label>
+                                    <label for="fir">Tên<span>*</span></label>
                                     <input type="text" id="name" name="name" value="{{ Auth::user()->name ?? '' }}">
                                 </div>
                                 
@@ -40,26 +37,17 @@
                                     <label for="email">Email<span>*</span></label>
                                     <input type="text" id="email" name="email" value="{{ Auth::user()->email ?? '' }}">
                                 </div>
-                                <div class="col-lg-6">
-                                    <label for="town_city">City<span>*</span></label>
+                                <div class="col-lg-12">
+                                    <label for="town_city">Thánh phố<span>*</span></label>
                                     <input type="text" id="town_city" name="town_city" value="{{ Auth::user()->town_city ?? '' }}">
                                 </div>
                                 <div class="col-lg-12">
-                                    <label for="street">Street Address<span>*</span></label>
+                                    <label for="street">Địa chỉ cụ thể<span>*</span></label>
                                     <input type="text" id="street" class="street-first" name="street_address" value="{{ Auth::user()->street_address ?? '' }}">
                                 </div>
-                                <div class="col-lg-6">
-                                    <label for="phone">Phone<span>*</span></label>
-                                    <input type="text" id="phone" name="phone" value="{{ Auth::user()->phone ?? '' }}">
-                                </div>
                                 <div class="col-lg-12">
-                                    <div class="create-item">
-                                        <label for="acc-create">
-                                            Create an account?
-                                            <input type="checkbox" id="acc-create">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </div>
+                                    <label for="phone">Số điện thoại<span>*</span></label>
+                                    <input type="text" id="phone" name="phone" value="{{ Auth::user()->phone ?? '' }}">
                                 </div>
                             </div>
                         </div>
@@ -68,18 +56,18 @@
                                 <input type="text" placeholder="Enter Your Coupon Code">
                             </div>
                             <div class="place-order">
-                                <h4>Your Order</h4>
+                                <h4>Hóa Đơn Của Khách Hàng</h4>
                                 <div class="order-total">
                                     <ul class="order-table">
-                                        <li>Product <span>Total</span></li>
+                                        <li>Sản Phẩm <span>Tiền</span></li>
                                         @foreach ($carts as $cart)
                                             <li class="fw-normal">
                                                 {{ $cart->name }} x {{ $cart->qty }}
                                                 <span>${{ $cart->price * $cart->qty }}</span>
                                             </li>
                                         @endforeach
-                                        <li class="fw-normal">Subtotal <span>${{ $subtotal }}</span></li>
-                                        <li class="total-price">Total <span>${{ $total }}</span></li>
+                                        <li class="fw-normal">Tổng tiền <span>${{ $subtotal }}</span></li>
+                                        <li class="total-price">Tổng các loại tiền <span>${{ $total }}</span></li>
                                     </ul>
                                     <div class="payment-check">
                                         <div class="pc-item">
@@ -99,7 +87,7 @@
                                         </div>
                                     </div>
                                     <div class="order-btn">
-                                        <button type="submit" class="site-btn place-btn">Place Order</button>
+                                        <button type="submit" class="site-btn place-btn">Thanh Toán</button>
                                     </div>
                                 </div>
                             </div>

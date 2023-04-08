@@ -1,14 +1,14 @@
 @extends('frontend.layouts.master')
-@section('title', 'Sản phẩm')
+@section('title', 'Chi Tiết Sản Phẩm')
 @section('content')
     <div class="breacrumb-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text product-more">
-                        <a href="./"><i class="fa fa-home"></i> Home</a>
-                        <a href="./shop">Shop</a>
-                        <span>Detail</span>
+                        <a href="./"><i class="fa fa-home"></i> Trang Chủ</a>
+                        <a href="./shop">Sản Phẩm</a>
+                        <span>Chi Tiết Sản Phẩm</span>
                     </div>
                 </div>
             </div>
@@ -86,12 +86,11 @@
                                     @endforeach
                                 </div>
                                 <div class="quantity">
-                                    <a href="javascript:addCart({{ $product->id }})" class="primary-btn pd-cart">Add To
-                                        Cart</a>
+                                    <a href="javascript:addCart({{ $product->id }})" class="primary-btn pd-cart">Thêm vào giỏ hàng</a>
                                 </div>
                                 <ul class="pd-tags">
-                                    <li><span>CATEGORIES</span>: {{ $product->productCategory->name }}</li>
-                                    <li><span>TAGS</span>:
+                                    <li><span>Loại Sản Phẩm</span>: {{ $product->productCategory->name }}</li>
+                                    <li><span>Tags</span>:
                                         @if ($product->tag)
 
                                             @foreach (json_decode($product->tag, true) ?? [] as $tags)
@@ -114,13 +113,13 @@
                         <div class="tab-item">
                             <ul class="nav" role="tablist">
                                 <li>
-                                    <a class="active" data-toggle="tab" href="#tab-1" role="tab">DESCRIPTION</a>
+                                    <a class="active" data-toggle="tab" href="#tab-1" role="tab">Mô Tả</a>
                                 </li>
                                 <li>
-                                    <a data-toggle="tab" href="#tab-2" role="tab">SPECIFICATIONS</a>
+                                    <a data-toggle="tab" href="#tab-2" role="tab">Chi Tiết Sản Phẩm</a>
                                 </li>
                                 <li>
-                                    <a data-toggle="tab" href="#tab-3" role="tab">Customer Reviews</a>
+                                    <a data-toggle="tab" href="#tab-3" role="tab">Đánh Giá Khách Hàng</a>
                                 </li>
                             </ul>
                         </div>
@@ -164,7 +163,7 @@
                                 </div>
                                 <div class="tab-pane fade" id="tab-3" role="tabpanel">
                                     <div class="customer-review-option">
-                                        <h4>{{ count($product->productComments) }} Comments</h4>
+                                        <h4>{{ count($product->productComments) }} Bình luận</h4>
                                         <div class="comment-option">
                                             <div class="co-item">
                                                 {{-- $product->productComments lấy ra từ trong model và gán vào 1 biến $productComment --}}
@@ -192,7 +191,7 @@
                                             </div>
                                         </div>
                                         <div class="personal-rating">
-                                            <h6>Your Ratind</h6>
+                                            <h6>Đánh giá sản phẩm</h6>
                                             <div class="rating">
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
@@ -202,7 +201,7 @@
                                             </div>
                                         </div>
                                         <div class="leave-comment">
-                                            <h4>Leave A Comment</h4>
+                                            <h4>Bình luận về sản phẩm</h4>
                                             <form action="" method="post" class="comment-form">
                                                 @csrf
                                                 <input type="hidden" name="product_id" value="{{ $product->id }}">
@@ -224,23 +223,23 @@
                                                             <div class="rate">
                                                                 <input type="radio" id="star5" name="rating"
                                                                     value="5" />
-                                                                <label for="star5" title="text">5 stars</label>
+                                                                <label for="star5" title="text">5 sao</label>
                                                                 <input type="radio" id="star4" name="rating"
                                                                     value="4" />
-                                                                <label for="star4" title="text">4 stars</label>
+                                                                <label for="star4" title="text">4 sao</label>
                                                                 <input type="radio" id="star3" name="rating"
                                                                     value="3" />
-                                                                <label for="star3" title="text">3 stars</label>
+                                                                <label for="star3" title="text">3 sao</label>
                                                                 <input type="radio" id="star2" name="rating"
                                                                     value="2" />
-                                                                <label for="star2" title="text">2 stars</label>
+                                                                <label for="star2" title="text">2 sao</label>
                                                                 <input type="radio" id="star1" name="rating"
                                                                     value="1" />
-                                                                <label for="star1" title="text">1 star</label>
+                                                                <label for="star1" title="text">1 sao</label>
                                                             </div>
                                                         </div>
 
-                                                        <button type="submit" class="site-btn">Send message</button>
+                                                        <button type="submit" class="site-btn">Gửi</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -262,7 +261,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Related Products</h2>
+                        <h2>Sản Phẩm Liên Quan</h2>
                     </div>
                 </div>
             </div>
@@ -279,8 +278,7 @@
                                 </div>
                                 <ul>
                                     <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="shop/product/{{ $relatedProduct->id }}">+ Quick
-                                            View</a></li>
+                                    <li class="quick-view"><a href="shop/product/{{ $relatedProduct->id }}">+ Xem</a></li>
                                     <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                                 </ul>
                             </div>

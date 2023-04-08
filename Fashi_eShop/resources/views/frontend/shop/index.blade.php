@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', 'Shop')
+@section('title', 'Sản Phẩm')
 @section('content')
 
 
@@ -9,8 +9,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
-                        <a href="./"><i class="fa fa-home"></i> Home</a>
-                        <span>Shop</span>
+                        <a href="./"><i class="fa fa-home"></i> Trang Chủ</a>
+                        <span>Sản Phẩm</span>
                     </div>
                 </div>
             </div>
@@ -34,24 +34,27 @@
                                     <div class="select-option">
                                         <select class="sorting" name="sort_by" onchange="this.form.submit()">
                                             <option {{ request('sort_by') == 'latest' ? 'selected' : '' }} value="latest">
-                                                Shorting: Latest</option>
+                                                Mới Nhất</option>
                                             <option {{ request('sort_by') == 'oldest' ? 'selected' : '' }} value="oldest">
-                                                Shorting: Oldest</option>
+                                                Cũ Nhất</option>
                                             <option {{ request('sort_by') == 'name-ascending' ? 'selected' : '' }}
-                                                value="name-ascending">Name A - Z</option>
+                                                value="name-ascending">Tên A - Z</option>
                                             <option {{ request('sort_by') == 'name-descending' ? 'selected' : '' }}
-                                                value="name-descending">Name Z - A</option>
+                                                value="name-descending">Tên Z - A</option>
                                             <option {{ request('sort_by') == 'price-ascending' ? 'selected' : '' }}
-                                                value="price-ascending">Price Ascending </option>
+                                                value="price-ascending">Giá Tăng Dần </option>
                                             <option {{ request('sort_by') == 'price-descending' ? 'selected' : '' }}
-                                                value="price-descending">Price Decrease</option>
+                                                value="price-descending">Giá Giảm Dần</option>
                                         </select>
                                         <select class="p-show" name="show" onchange="this.form.submit()">
-                                            <option {{ request('show') == '3' ? 'selected' : '' }} value="3">Show: 3
+                                            <option {{ request('show') == '3' ? 'selected' : '' }} value="3">Hiện thị:
+                                                3
                                             </option>
-                                            <option {{ request('show') == '9' ? 'selected' : '' }} value="9">Show: 9
+                                            <option {{ request('show') == '9' ? 'selected' : '' }} value="9">Hiện thị:
+                                                9
                                             </option>
-                                            <option {{ request('show') == '15' ? 'selected' : '' }} value="15">Show: 15
+                                            <option {{ request('show') == '15' ? 'selected' : '' }} value="15">Hiện thị:
+                                                15
                                             </option>
 
                                         </select>

@@ -13,7 +13,7 @@
                     <i class="icon_bag_alt"></i>
                 </a>
             </li>
-            <li class="quick-view"><a href="shop/product/{{ $product->id }}">+ Quick View</a></li>
+            <li class="quick-view"><a href="shop/product/{{ $product->id }}">+ Xem</a></li>
         </ul>
     </div>
     <div class="pi-text">

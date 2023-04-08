@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', 'Cart')
+@section('title', 'Giỏ Hàng')
 @section('content')
    <!-- Breadcrumb Section Begin -->
    <div class="breacrumb-section">
@@ -7,9 +7,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text product-more">
-                        <a href="./"><i class="fa fa-home"></i> Home</a>
-                        <a href="./shop">Shop</a>
-                        <span>Shopping Cart</span>
+                        <a href="./"><i class="fa fa-home"></i> Trang Chủ</a>
+                        <a href="./shop">Sản Phẩm</a>
+                        <span>Giỏ Hàng</span>
                     </div>
                 </div>
             </div>
@@ -27,11 +27,11 @@
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>Image</th>
-                                        <th class="p-name">Product Name</th>
-                                        <th>Price</th>
-                                        <th>Quantity</th>
-                                        <th>Total</th>
+                                        <th>Hình ảnh</th>
+                                        <th class="p-name">Tên sản phẩm</th>
+                                        <th>Giá</th>
+                                        <th>Số lượng</th>
+                                        <th>Tổng tiền</th>
                                         <th>
                                             <i onclick="confirm('Bạn có muốn xóa tất cả sản phẩm ?') === true ? destroyCart() : ''" 
                                             style="cursor: pointer;" class="ti-close"></i>
@@ -67,24 +67,16 @@
                         <div class="row">
                             <div class="col-lg-4">
                                 <div class="cart-buttons">
-                                    <a href="#" class="primary-btn continue-shop">Continue shopping</a>
-                                    <a href="#" class="primary-btn up-cart">Update cart</a>
-                                </div>
-                                <div class="discount-coupon">
-                                    <h6>Discount Codes</h6>
-                                    <form action="#" class="coupon-form">
-                                        <input type="text" placeholder="Enter your codes">
-                                        <button type="submit" class="site-btn coupon-btn">Apply</button>
-                                    </form>
+                                    <a href="./shop" class="primary-btn continue-shop">Tiếp tục mua sản phẩm</a>
                                 </div>
                             </div>
                             <div class="col-lg-4 offset-lg-4">
                                 <div class="proceed-checkout">
                                     <ul>
-                                        <li class="subtotal">Subtotal <span>${{ $total }}</span></li>
-                                        <li class="cart-total">Total <span>${{ $subtotal }}</span></li>
+                                        <li class="subtotal">Tổng tiền <span>${{ $subtotal }}</span></li>
+                                        <li class="cart-total">Tổng các loại tiền <span>${{ $total }}</span></li>
                                     </ul>
-                                    <a href="./checkout" class="proceed-btn">PROCEED TO CHECK OUT</a>
+                                    <a href="./checkout" class="proceed-btn">Thanh Toán</a>
                                 </div>
                             </div>
                         </div>

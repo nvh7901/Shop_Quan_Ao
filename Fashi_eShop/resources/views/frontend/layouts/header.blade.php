@@ -19,7 +19,7 @@
                         {{ Auth::user()->name }} - Đăng xuất
                     </a>
                 @else
-                    <a href="./account/login" class="login-panel"><i class="fa fa-user"></i>Login</a>
+                    <a href="./account/login" class="login-panel"><i class="fa fa-user"></i>Đăng nhập</a>
                 @endif
 
             </div>
@@ -41,7 +41,7 @@
                             <button type="button" class="category-btn">All Categories</button>
                             <div class="input-group">
                                 <input name="search" value="{{ request('search') }}" type="text"
-                                    placeholder="What do you need?">
+                                    placeholder="Tìm kiếm ....">
                                 <button type="submit"><i class="ti-search"></i></button>
                             </div>
                         </div>
@@ -49,12 +49,7 @@
                 </div>
                 <div class="col-lg-3 text-right col-md-3">
                     <ul class="nav-right">
-                        <li class="heart-icon">
-                            <a href="#">
-                                <i class="icon_heart_alt"></i>
-                                <span>1</span>
-                            </a>
-                        </li>
+
                         {{-- Giỏ hàng --}}
                         <li class="cart-icon">
                             <a href="./cart">
@@ -64,8 +59,8 @@
                             <div class="cart-hover">
 
                                 <div class="select-button">
-                                    <a href="./cart" class="primary-btn view-card">VIEW CARD</a>
-                                    <a href="./checkout" class="primary-btn checkout-btn">CHECK OUT</a>
+                                    <a href="./cart" class="primary-btn view-card">Xem Giỏ Hàng</a>
+                                    <a href="./checkout" class="primary-btn checkout-btn">Thanh Toán</a>
                                 </div>
                             </div>
                         </li>
@@ -79,16 +74,16 @@
         <div class="container">
             <nav class="nav-menu mobile-menu">
                 <ul>
-                    <li class="{{ request()->segment(1) == '' ? 'active' : '' }}"><a href="./">Home</a></li>
-                    <li class="{{ request()->segment(1) == 'shop' ? 'active' : '' }}"><a href="./shop">Shop</a></li>
+                    <li class="{{ request()->segment(1) == '' ? 'active' : '' }}"><a href="./">Trang Chủ</a></li>
+                    <li class="{{ request()->segment(1) == 'shop' ? 'active' : '' }}"><a href="./shop">Sản Phẩm</a></li>
                     <li class="{{ request()->segment(1) == 'blog' ? 'active' : '' }}"><a href="./blog">Blog</a></li>
-                    <li><a href="./contact.html">Contact</a></li>
-                    <li><a href="#">Pages</a>
+                    <li><a href="./contact.html">Liên Hệ</a></li>
+                    <li><a href="#">Trang</a>
                         <ul class="dropdown">
-                            <li><a href="./cart">Shopping Cart</a></li>
-                            <li><a href="./checkout">Checkout</a></li>
-                            <li><a href="./account/register">Register</a></li>
-                            <li><a href="./account/login">Login</a></li>
+                            <li><a href="./cart">Giỏ Hàng</a></li>
+                            <li><a href="./checkout">Thanh Toán</a></li>
+                            <li><a href="./account/register">Đăng Ký</a></li>
+                            <li><a href="./account/login">Đăng Nhập</a></li>
                         </ul>
                     </li>
                 </ul>
