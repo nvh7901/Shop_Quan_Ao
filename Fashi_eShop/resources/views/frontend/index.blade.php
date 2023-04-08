@@ -87,12 +87,15 @@
                 </div>
                 <div class="col-lg-8 offset-lg-1">
                     <div class="filter-control">
+                        <div class="section-title">
+                            <h2>Sản Phẩm Nữ Nổi Bật</h2>
+                        </div>
                         <ul>
-                            <li class="active item" data-tag="*" data-category="*">Tất Cả</li>
-                            <li class="item" data-tag=".Fragrant" data-category="Nữ">Quần Áo</li>
-                            <li class="item" data-tag=".Concentration" data-category="Nữ">Túi Xách</li>
-                            <li class="item" data-tag=".Capacity" data-category="Nữ">Giày</li>
-                            <li class="item" data-tag=".Accessories" data-category="Nữ">Phụ Kiện</li>
+                            {{-- <li class="active item" data-tag="*" data-category="Nữ">Tất Cả</li>
+                            <li class="item" data-tag=".Ao" data-category="Nữ">Quần Áo</li>
+                            <li class="item" data-tag=".Tui" data-category="Nữ">Túi Xách</li>
+                            <li class="item" data-tag=".Giày" data-category="Nữ">Giày</li>
+                            <li class="item" data-tag=".Phụ Kiện" data-category="Nữ">Phụ Kiện</li> --}}
                         </ul>
                     </div>
 
@@ -107,20 +110,23 @@
         </div>
     </section>
     <!-- Women Banner Section End -->
-    
+
     <!-- Man Banner Section Begin -->
     <section class="man-banner spad">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-8">
                     <div class="filter-control">
-                        <ul>
-                            <li class="active item" data-tag="*" data-category="*">Tất Cả</li>
-                            <li class="item" data-tag=".Fragrant" data-category="Nam">Quần ÁO</li>
-                            <li class="item" data-tag=".Concentration" data-category="Nam">Túi Xách</li>
-                            <li class="item" data-tag=".Capacity" data-category="Nam">Giày</li>
-                            <li class="item" data-tag=".Accessories" data-category="men">Phụ Kiện</li>
-                        </ul>
+                        <div class="section-title">
+                            <h2>Sản Phẩm Nam Nổi Bật</h2>
+                        </div>
+                        {{-- <ul>
+                            <li class="active item" data-tag="*" data-category="Nam">Tất Cả</li>
+                            <li class="item" data-tag=".Quần Áo" data-category="Nam">Quần Áo</li>
+                            <li class="item" data-tag=".Túi Xách" data-category="Nam">Túi Xách</li>
+                            <li class="item" data-tag=".Giày" data-category="Nam">Giày</li>
+                            <li class="item" data-tag=".Phụ Kiện" data-category="Nam">Phụ Kiện</li>
+                        </ul> --}}
                     </div>
                     <div class="product-slider owl-carousel Nam">
                         @foreach ($featuredProduct['Nam'] as $product)
