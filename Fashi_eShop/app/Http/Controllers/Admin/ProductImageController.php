@@ -57,7 +57,7 @@ class ProductImageController extends Controller
             ProductImage::create($data);
         }
 
-        return redirect('admin/product/'.$product_id.'/image')->with('notification', 'Thêm hình ảnh thành công');
+        return redirect('admin/product/'.$product_id.'/image')->with('notification', 'Thêm hình ảnh sản phẩm thành công');
     }
 
     /**
@@ -108,9 +108,8 @@ class ProductImageController extends Controller
         }
 
         // Xóa bản ghi trong DB
-
         ProductImage::find($product_image_id)->delete();
 
-        return redirect('admin/product/'.$product_id.'/image')->with('notification', 'Xóa hình ảnh thành công');
+        return redirect('admin/product/'.$product_id.'/image')->with('notification', 'Xóa hình ảnh sản phẩm thành công');
     }
 }
