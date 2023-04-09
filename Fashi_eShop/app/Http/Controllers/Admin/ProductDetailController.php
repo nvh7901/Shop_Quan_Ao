@@ -26,7 +26,7 @@ class ProductDetailController extends Controller
     {
         $products = $this->productService->find($product_id);
         $productDetails = $products->productDetails;
-        $productDetails = ProductDetail::paginate(5);
+        $productDetails = ProductDetail::paginate(12);
 
         return view('backend.product.detail.index')
             ->with(compact('products'))

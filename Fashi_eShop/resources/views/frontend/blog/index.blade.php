@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 
-@section('title', 'Blog')
+@section('title', 'Bài Viết')
 
 @section('content')
     <!-- Breadcrumb Section Begin -->
@@ -9,8 +9,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
-                        <a href="./"><i class="fa fa-home"></i> Home</a>
-                        <span>Blog</span>
+                        <a href="./"><i class="fa fa-home"></i> Trang Chủ</a>
+                        <span>Bài Viết</span>
                     </div>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                     <div class="blog-sidebar">
 
                         <div class="recent-post">
-                            <h4>Recent Post</h4>
+                            <h4>Bài Viết Mới</h4>
                             <div class="recent-blog">
                                 @foreach ($blogRelated as $blogRelateds)
                                     <a href="#" class="rb-item">
@@ -56,10 +56,6 @@
                                                 <i class="fa fa-calendar-o"></i>
                                                 {{ date('M d, Y', strtotime($blog->created_at)) }}
                                             </div>
-                                            {{-- <div class="tag-item">
-                                             <i class="fa fa-comment-o"></i>
-                                             {{ count($blog->blogComments) }}
-                                         </div> --}}
                                         </div>
                                         <a href="./blog/blog-detail/{{ $blog->id }}">
                                             <h4>{{ $blog->title }}</h4>

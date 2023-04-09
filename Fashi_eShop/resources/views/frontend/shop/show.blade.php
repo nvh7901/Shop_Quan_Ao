@@ -86,7 +86,8 @@
                                     @endforeach
                                 </div>
                                 <div class="quantity">
-                                    <a href="javascript:addCart({{ $product->id }})" class="primary-btn pd-cart">Thêm vào giỏ hàng</a>
+                                    <a href="javascript:addCart({{ $product->id }})" class="primary-btn pd-cart">Thêm vào
+                                        giỏ hàng</a>
                                 </div>
                                 <ul class="pd-tags">
                                     <li><span>Loại Sản Phẩm</span>: {{ $product->productCategory->name }}</li>
@@ -136,7 +137,7 @@
                                     <div class="specification-table">
                                         <table>
                                             <tr>
-                                                <td class="p-catagory">Customer Rating</td>
+                                                <td class="p-catagory">Đánh Giá Của Khách Hàng</td>
                                                 <td>
                                                     <div class="pd-rating">
                                                         @for ($i = 1; $i < 5; $i++)
@@ -151,10 +152,42 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="p-catagory">Price</td>
+                                                <td class="p-catagory">Loại Sản Phẩm</td>
                                                 <td>
                                                     <div class="p-price">
-                                                        {{ $product->price }}
+                                                        {{ $product->productCategory->name }}
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-catagory">Giá Sản Phẩm</td>
+                                                <td>
+                                                    <div class="p-price">
+                                                        {{ $product->price }} $
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-catagory">Size</td>
+                                                <td>
+                                                    <div class="p-price">
+                                                        @foreach (array_unique(array_column($product->productDetails->toArray(), 'size')) as $productSize)
+                                                            {{ $productSize }},
+                                                        @endforeach
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-catagory">Tag Sản Phẩm</td>
+                                                <td>
+                                                    <div class="p-price">
+                                                        @if ($product->tag)
+
+                                                            @foreach (json_decode($product->tag, true) ?? [] as $tags)
+                                                                <label
+                                                                    class="label label-info">{{ $tags }}</label>
+                                                            @endforeach
+                                                        @endif
                                                     </div>
                                                 </td>
                                             </tr>
@@ -278,7 +311,8 @@
                                 </div>
                                 <ul>
                                     <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="shop/product/{{ $relatedProduct->id }}">+ Xem</a></li>
+                                    <li class="quick-view"><a href="shop/product/{{ $relatedProduct->id }}">+ Xem</a>
+                                    </li>
                                     <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                                 </ul>
                             </div>
