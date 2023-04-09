@@ -56,7 +56,7 @@ class ProductRepository extends BaseRepositories implements ProductRepositoryInt
     // Tìm kiếm và phân trang
     private function sortAndPagination($products, Request $request)
     {
-        $perPage = $request->show ?? 3;
+        $perPage = $request->show ?? 12;
         $sortBy = $request->sort_by ?? 'latest';
 
         switch ($sortBy) {

@@ -39,24 +39,21 @@
                 <label for="s-size" class="{{ request('size') == 'xl' ? 'active' : '' }}">xl</label>
             </div>
             <div class="sc-item">
-                <input type="radio" id="s-size" name="size" value="s" onchange="this.form.submit();"
-                    {{ request('size') == 's' ? 'checked' : '' }}>
-                <label for="s-size" class="{{ request('size') == 's' ? 'active' : '' }}">s</label>
+                <input type="radio" id="l-size" name="size" value="l" onchange="this.form.submit();"
+                    {{ request('size') == 'l' ? 'checked' : '' }}>
+                <label for="l-size" class="{{ request('size') == 'l' ? 'active' : '' }}">l</label>
             </div>
+            
             <div class="sc-item">
                 <input type="radio" id="m-size" name="size" value="m" onchange="this.form.submit();"
                     {{ request('size') == 'm' ? 'checked' : '' }}>
                 <label for="m-size" class="{{ request('size') == 'm' ? 'active' : '' }}">m</label>
             </div>
+
             <div class="sc-item">
-                <input type="radio" id="l-size" name="size" value="l" onchange="this.form.submit();"
-                    {{ request('size') == 'l' ? 'checked' : '' }}>
-                <label for="l-size" class="{{ request('size') == 'l' ? 'active' : '' }}">l</label>
-            </div>
-            <div class="sc-item">
-                <input type="radio" id="xs-size" name="size" value="xs" onchange="this.form.submit();"
-                    {{ request('size') == 'xs' ? 'checked' : '' }}>
-                <label for="xs-size" class="{{ request('size') == 'xs' ? 'active' : '' }}">xs</label>
+                <input type="radio" id="s-size" name="size" value="s" onchange="this.form.submit();"
+                    {{ request('size') == 's' ? 'checked' : '' }}>
+                <label for="s-size" class="{{ request('size') == 's' ? 'active' : '' }}">s</label>
             </div>
         </div>
     </div>

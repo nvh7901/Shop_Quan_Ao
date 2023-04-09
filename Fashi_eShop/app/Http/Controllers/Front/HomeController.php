@@ -25,7 +25,6 @@ class HomeController extends Controller
     {
         // Sản phẩm nổi bật
         $featuredProduct = $this->productService->getFeaturedProducts();
-        // dd($featuredProduct);
         // Danh sách blog
         $blogs = $this->blogService->getRelatestBlogs();
         return view('frontend.index')

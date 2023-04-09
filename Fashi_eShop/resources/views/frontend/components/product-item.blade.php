@@ -3,7 +3,7 @@
     @foreach (json_decode($product->tag, true) ?? [] as $tag)                                    
         {{ $tag }} @endforeach">
     <div class="pi-pic">
-        <img src="frontend/img/products/{{ $product->productImages[0]->path ?? ' ' }}" alt="">
+        <img src="frontend/img/products/{{ $product->productImages[0]->path ?? ' ' }}">
         <div class="icon">
             <i class="icon_heart_alt"></i>
         </div>
