@@ -1,7 +1,4 @@
-<div
-    class="product-item item
-    @foreach (json_decode($product->tag, true) ?? [] as $tag)                                    
-        {{ $tag }} @endforeach">
+<div class="product-item item">
     <div class="pi-pic">
         <img src="frontend/img/products/{{ $product->productImages[0]->path ?? ' ' }}">
         <div class="icon">
@@ -14,6 +11,7 @@
                 </a>
             </li>
             <li class="quick-view"><a href="shop/product/{{ $product->id }}">+ Xem</a></li>
+            <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
         </ul>
     </div>
     <div class="pi-text">

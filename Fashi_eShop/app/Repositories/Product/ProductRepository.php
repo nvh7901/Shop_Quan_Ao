@@ -17,7 +17,7 @@ class ProductRepository extends BaseRepositories implements ProductRepositoryInt
     // Lấy ra sản phẩm liên quan trang chi tiết sản phẩm
     public function getRelatedProducts($product)
     {
-        return $this->model->where('product_category_id', $product->product_category_id)->limit(4)->get();
+        return $this->model->where('product_category_id', $product->product_category_id)->get();
     }
 
     // Sản phẩm nổi bật trang index

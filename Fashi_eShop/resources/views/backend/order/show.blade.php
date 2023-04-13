@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title', 'Chi Tiết Order')
+@section('title', 'Chi Tiết Đơn Hàng')
 @section('content')
 
     <!-- Main -->
@@ -10,15 +10,15 @@
                     <div class="card-body display_data">
 
                         <div class="table-responsive">
-                            <h2 class="text-center">Products list</h2>
+                            <h2 class="text-center">Danh Sách Sản Phẩm</h2>
                             <hr>
                             <table class="align-middle mb-0 table table-borderless table-striped table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Product</th>
-                                        <th class="text-center">Quantity</th>
-                                        <th class="text-center">Unit Price</th>
-                                        <th class="text-center">Total</th>
+                                        <th>Sản phẩm</th>
+                                        <th class="text-center">Số lượng</th>
+                                        <th class="text-center">Giá</th>
+                                        <th class="text-center">Tổng tiền</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -54,16 +54,14 @@
                             </table>
                         </div>
 
-
-
-                        <h2 class="text-center mt-5">Order info</h2>
+                        <h2 class="text-center mt-5">Chi tiết đơn hàng</h2>
                         <hr>
                         <div class="position-relative row form-group">
                             <label for="name" class="col-md-3 text-md-right col-form-label" style="padding-top: 0px;">
-                                Full Name
+                                Họ và tên
                             </label>
                             <div class="col-md-9 col-xl-8">
-                                <p>{{ $orders->first_name  }}</p>
+                                <p>{{ $orders->first_name }}</p>
                             </div>
                         </div>
 
@@ -77,21 +75,11 @@
 
                         <div class="position-relative row form-group">
                             <label for="phone" class="col-md-3 text-md-right col-form-label "
-                                style="padding-top: 0px;">Phone</label>
+                                style="padding-top: 0px;">Số điện thoại</label>
                             <div class="col-md-9 col-xl-8">
                                 <p>{{ $orders->phone }}</p>
                             </div>
                         </div>
-
-                        {{-- <div class="position-relative row form-group">
-                            <label for="company_name" class="col-md-3 text-md-right col-form-label "
-                                style="padding-top: 0px;">
-                                Company Name
-                            </label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>{{ $orders->company_name }}</p>
-                            </div>
-                        </div> --}}
 
                         <div class="position-relative row form-group">
                             <label for="street_address" class="col-md-3 text-md-right col-form-label "
@@ -102,34 +90,9 @@
                             </div>
                         </div>
 
-                        {{-- <div class="position-relative row form-group">
-                            <label for="town_city" class="col-md-3 text-md-right col-form-label " style="padding-top: 0px;">
-                                Town City</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>{{ $orders->town_city }}</p>
-                            </div>
-                        </div> --}}
-
-                        {{-- <div class="position-relative row form-group">
-                            <label for="country" class="col-md-3 text-md-right col-form-label "
-                                style="padding-top: 0px;">Country</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>{{ $orders->country }}</p>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="postcode_zip" class="col-md-3 text-md-right col-form-label "
-                                style="padding-top: 0px;">
-                                Postcode Zip</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>{{ $orders->postcode_zip }}</p>
-                            </div>
-                        </div> --}}
-
                         <div class="position-relative row form-group">
                             <label for="payment_type" class="col-md-3 text-md-right col-form-label "
-                                style="padding-top: 0px;">Payment Type</label>
+                                style="padding-top: 0px;">Phương thức thanh toán</label>
                             <div class="col-md-9 col-xl-8">
                                 <p>{{ $orders->payment_type }}</p>
                             </div>
@@ -137,21 +100,13 @@
 
                         <div class="position-relative row form-group">
                             <label for="status" class="col-md-3 text-md-right col-form-label "
-                                style="padding-top: 0px;">Status</label>
+                                style="padding-top: 0px;">Trạng thái</label>
                             <div class="col-md-9 col-xl-8">
-                                <div class="badge badge-dark mt-2">
+                                <div class="badge badge-success mt-2">
                                     {{ \App\Utilities\Constant::$order_status[$orders->status] }}
                                 </div>
                             </div>
                         </div>
-
-                        {{-- <div class="position-relative row form-group">
-                            <label for="description" class="col-md-3 text-md-right col-form-label "
-                                style="padding-top: 0px;">Description</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>{{ $orders->description }}</p>
-                            </div>
-                        </div> --}}
                     </div>
                 </div>
             </div>

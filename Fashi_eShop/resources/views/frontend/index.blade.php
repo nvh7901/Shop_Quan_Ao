@@ -80,7 +80,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-3">
-                    <div class="product-large set-bg" data-setbg="frontend/img/products/women-large.jpg">
+                    <div class="product-large set-bg" data-setbg="frontend/img/products/women-large.jpg" style="height: 100%">
                         <h2>Nữ</h2>
                         <a href="./shop">Khám Phá Thêm</a>
                     </div>
@@ -135,7 +135,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3 offset-lg-1">
-                    <div class="product-large set-bg m-large" data-setbg="frontend/img/products/man-large.jpg">
+                    <div class="product-large set-bg m-large" data-setbg="frontend/img/products/man-large.jpg" style="height: 100%">
                         <h2>Nam</h2>
                         <a href="./shop">Khám Phá Thêm</a>
                     </div>

@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title', 'Order')
+@section('title', 'Quản Lý Đơn Hàng')
 @section('content')
 
     <!-- Main -->
@@ -12,23 +12,16 @@
 
                         <form>
                             <div class="input-group">
-                                <input type="search" name="search" id="search" placeholder="Search everything"
+                                <input type="search" name="search" id="search" placeholder="Tìm kiếm"
                                     class="form-control" value="{{ request('search') }}">
                                 <span class="input-group-append">
                                     <button type="submit" class="btn btn-primary">
                                         <i class="fa fa-search"></i>&nbsp;
-                                        Search
+                                        Tìm kiếm
                                     </button>
                                 </span>
                             </div>
                         </form>
-
-                        <div class="btn-actions-pane-right">
-                            <div role="group" class="btn-group-sm btn-group">
-                                <button class="btn btn-focus">This week</button>
-                                <button class="active btn btn-focus">Anytime</button>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="table-responsive">
@@ -36,12 +29,12 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">ID</th>
-                                    <th>Customer / Products</th>
-                                    <th>Image</th>
-                                    <th class="text-center">QTY</th>
-                                    <th class="text-center">Amount</th>
-                                    <th class="text-center">Status</th>
-                                    <th class="text-center">Actions</th>
+                                    <th>Họ tên khách hàng / Tên sản phẩm</th>
+                                    <th>Hình ảnh</th>
+                                    <th class="text-center">Số lượng</th>
+                                    <th class="text-center">Tổng tiền</th>
+                                    <th class="text-center">Trạng thái</th>
+                                    <th class="text-center">Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -91,14 +84,14 @@
                                         <td class="text-center">
                                             ${{ array_sum(array_column($order->orderDetails->toArray(), 'total')) }}</td>
                                         <td class="text-center">
-                                            <div class="badge badge-dark">
+                                            <div class="badge badge-success">
                                                 {{ \App\Utilities\Constant::$order_status[$order->status] }}
                                             </div>
                                         </td>
                                         <td class="text-center">
                                             <a href="./admin/order/{{ $order->id }}"
                                                 class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
-                                                Details
+                                                Chi Tiết
                                             </a>
                                         </td>
                                     </tr>

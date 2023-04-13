@@ -55,7 +55,7 @@
                                 @foreach ($productDetails as $productDetail)
                                     <tr>
                                         <td class="text-center">#{{ $productDetail->id }}</td>
-                                        <td class="pl-4 text-muted">{{ $products->name }}</td>
+                                        <td class="pl-4 text-muted">{{ $productDetail->product->name }}</td>
                                         <td class="text-center">{{ $productDetail->size }}</td>
                                         <td class="text-center">{{ $productDetail->qty }}</td>
 
