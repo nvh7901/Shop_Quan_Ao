@@ -14,7 +14,7 @@ class Constant
    const order_status_Finish = 7;
    const order_status_Cancel = 0;
    public static $order_status = [
-      self::order_status_ReceiveOrders => 'Receive Orders',
+      self::order_status_ReceiveOrders => 'Order thành công',
       self::order_status_Unconfirmed => 'Unconfirme',
       self::order_status_Confirmed => 'Confirmed',
       self::order_status_Paid => 'Paid',

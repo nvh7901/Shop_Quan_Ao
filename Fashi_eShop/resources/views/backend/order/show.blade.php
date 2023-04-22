@@ -15,6 +15,7 @@
                             <table class="align-middle mb-0 table table-borderless table-striped table-hover">
                                 <thead>
                                     <tr>
+                                        <th class="text-center">ID</th>
                                         <th>Sản phẩm</th>
                                         <th class="text-center">Số lượng</th>
                                         <th class="text-center">Giá</th>
@@ -24,6 +25,7 @@
                                 <tbody>
                                     @foreach ($orders->orderDetails as $order)
                                         <tr>
+                                            <td class="text-center text-muted">#{{ $order->id }}</td>
                                             <td>
                                                 <div class="widget-content p-0">
                                                     <div class="widget-content-wrapper">
@@ -61,7 +63,7 @@
                                 Họ và tên
                             </label>
                             <div class="col-md-9 col-xl-8">
-                                <p>{{ $orders->first_name }}</p>
+                                <p>{{ $orders->name }}</p>
                             </div>
                         </div>
 
@@ -84,7 +86,7 @@
                         <div class="position-relative row form-group">
                             <label for="street_address" class="col-md-3 text-md-right col-form-label "
                                 style="padding-top: 0px;">
-                                Street Address</label>
+                                Địa chỉ</label>
                             <div class="col-md-9 col-xl-8">
                                 <p>{{ $orders->street_address }}</p>
                             </div>
@@ -94,16 +96,8 @@
                             <label for="payment_type" class="col-md-3 text-md-right col-form-label "
                                 style="padding-top: 0px;">Phương thức thanh toán</label>
                             <div class="col-md-9 col-xl-8">
-                                <p>{{ $orders->payment_type }}</p>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="status" class="col-md-3 text-md-right col-form-label "
-                                style="padding-top: 0px;">Trạng thái</label>
-                            <div class="col-md-9 col-xl-8">
                                 <div class="badge badge-success mt-2">
-                                    {{ \App\Utilities\Constant::$order_status[$orders->status] }}
+                                    <p>{{ $orders->payment_type }}</p>
                                 </div>
                             </div>
                         </div>
