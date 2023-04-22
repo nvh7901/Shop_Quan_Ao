@@ -131,7 +131,8 @@
                                                             </a>
                                                         </li>
                                                     </ul>
-                                                </div>
+                                                </div> dev
+                                                
                                                 <div class="col-sm-6 col-xl-4">
                                                     <ul class="nav flex-column">
                                                         <li class="nav-item-header nav-item"> Favourites</li>
