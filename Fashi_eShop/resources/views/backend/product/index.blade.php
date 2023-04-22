@@ -45,7 +45,7 @@
                                     <th>Hình ảnh/ Tên sản phẩm</th>
                                     <th class="text-center">Giá</th>
                                     <th class="text-center" style="width: 150px;">Tag</th>
-                                    <th class="text-center">SP nổi bật</th>
+                                    <th class="text-center">Nổi bật</th>
                                     <th class="text-center">Thao tác</th>
                                 </tr>
                             </thead>
@@ -94,7 +94,7 @@
                                         <td class="text-center">
                                             <a href="./admin/product/{{ $product->id }}"
                                                 class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
-                                                Chi tiết SP
+                                                Chi tiết
                                             </a>
                                             <a href="./admin/product/{{ $product->id }}/edit" data-toggle="tooltip"
                                                 data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
