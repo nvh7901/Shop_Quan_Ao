@@ -81,7 +81,7 @@ class CheckOutController extends Controller
             throw $e;
         }
         // Kiểm tra hình thức chọn thanh toán
-        if ($request->payment_type == 'Thanh toán khi nhận hàng') {
+        if ($request->payment_type == 'pay_later') {
             // Gửi mail
             $total = Cart::total();
             $subtotal = Cart::subtotal();
@@ -94,7 +94,7 @@ class CheckOutController extends Controller
                 ->with('notification', 'Bạn đã đặt hàng thành công. Vui lòng kiểm tra email của bạn !');
         }
         // Thanh toán online
-        if ($request->payment_type == 'Thanh toán qua thẻ') {
+        if ($request->payment_type == 'online_payment') {
             // Lấy URL thanh toán
             $data_url = VNPay::vnpay_create_payment([
                 'vnp_TxnRef' => $order->id,
